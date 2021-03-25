@@ -82,8 +82,7 @@ const nuxtSettings = async () => {
         {
           rel: 'preload',
           as: 'style',
-          href:
-            'https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,600,600i,700,700i',
+          href:"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,900;1,300;1,400;1,500;1,900&display=swap",
           crossorigin: 'anonymous',
           onLoad: "this.rel='stylesheet'"
         },
@@ -93,8 +92,7 @@ const nuxtSettings = async () => {
         },
         {
           rel: 'stylesheet',
-          href:
-            'https://fonts.googleapis.com/css?family=Barlow:300,300i,400,400i,600,600i,700,700i'
+          href:"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,900;1,300;1,400;1,500;1,900&display=swap",
         }
       ],
       // remove to allow preloading

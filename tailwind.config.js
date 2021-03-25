@@ -3,16 +3,9 @@ const Color = require('color');
 // colors
 const baseColors = {
   white: '#f3f2f2',
-  red: '#FF5C40',
-  orange: '#FAA82F',
-  yellow: '#FAD600',
-  green: '#8DCC29',
-  cyan: '#5BBAE8',
-  blue: '#5587D9',
-  purple: '#974674',
-  grey: '#999898',
-  gray: '#999898',
-  black: '#232222'
+  purple: '#41204d',
+  gray: '#e2e3d6',
+  black: '#333333'
 };
 
 // generate light / dark values
@@ -108,7 +101,7 @@ module.exports = {
       '4k': '3840px'
     },
     fontFamily: {
-      sans: ['Barlow', 'sans-serif']
+      sans: ['Montserrat', 'sans-serif']
     },
     letterSpacing: {
       '-1': '-0.056rem',
@@ -128,7 +121,7 @@ module.exports = {
       screen: '100vh'
     },
     extend: {
-      colors: { ...colors, primary: colors.red['400'] },
+      colors: { ...colors, primary: colors.purple['500'] },
       fill: theme => theme('colors'),
       fontSize: {
         xxs: '.625rem',
