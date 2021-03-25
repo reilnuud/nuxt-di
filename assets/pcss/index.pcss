@@ -1,0 +1,72 @@
+/* Tailwind Normalize */
+/*! purgecss start ignore */
+@import "@tailwindcss/postcss7-compat/base.css";
+/*! purgecss end ignore */
+
+/* ! Disable this if not using it */
+/* Leaflet Styles */
+/*! purgecss start ignore */
+/* @import "leaflet/dist/leaflet.css";
+@import "./leaflet.pcss"; */
+/*! purgecss end ignore */
+
+/* Components / Elements That Allow Overrides */
+/*! purgecss start ignore */
+/* Elements */
+/* @import "./components/ui/hyperlink.pcss"; */
+/* Components */
+@import "./components/rich-text.pcss";
+/* @import "./components/prismic/slices.pcss"; */
+/*! purgecss end ignore */
+
+/* Tailwind Overrides */
+@import "@tailwindcss/postcss7-compat/components.css";
+@import "@tailwindcss/postcss7-compat/utilities.css";
+
+/* Components / Additional Utilities / Transitions that ignore overrides */
+/*! purgecss start ignore */
+@import "./transitions.pcss";
+/* @import "./video-player.pcss"; */
+/* Utilities */
+/* @import "./utilities/underline.pcss"; */
+/*! purgecss end ignore */
+
+html {
+  @apply w-full h-full relative;
+  font-size:17px;
+  @screen sm {
+    font-size: 19px;
+  }
+  @screen hd {
+    font-size:21px;
+  }
+  @screen 4k {
+    font-size:24px;
+  }
+}
+
+body {
+  @apply text-black font-sans w-full h-full relative antialiased;
+}
+
+#__app {
+  @apply w-full h-full relative;
+}
+
+#__layout {
+  @apply w-full h-full relative;
+}
+
+button {
+  &:focus {
+    outline:0;
+  }
+  &:active {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+#__app .material-icons {
+  font-size: 100%;
+  vertical-align: middle;
+}

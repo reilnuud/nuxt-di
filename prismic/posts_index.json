@@ -1,0 +1,40 @@
+{
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "useAsTitle": true,
+        "label": "Title"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Slug"
+      }
+    }
+  },
+  "Meta": {
+    "meta_title": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Title",
+        "placeholder": "Defaults to page title if not set"
+      }
+    },
+    "meta_description": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Description"
+      }
+    },
+    "meta_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Meta Image"
+      }
+    }
+  }
+}
