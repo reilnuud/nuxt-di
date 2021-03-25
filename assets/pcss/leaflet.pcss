@@ -1,0 +1,29 @@
+#map {
+  .leaflet-bar {
+    @apply border-none;
+    a {
+      @apply flex justify-center items-center w-8 h-8;
+    }
+  }
+  .leaflet-control-zoom {
+    @apply ml-2 mt-2;
+  }
+  .leaflet-control-zoom-in,
+  .leaflet-control-zoom-out {
+    @apply cursor-pointer border-none bg-black mb-2 text-white;
+    &:hover {
+      @apply opacity-75;
+    }
+  }
+  .leaflet-disabled {
+    @apply opacity-25 cursor-not-allowed;
+  }
+  .leaflet-control-attribution {
+    @apply px-2 py-1 uppercase tracking-1 text-black;
+    background:rgba(theme('colors.white.default'), 0.5);
+    font-size:0.5rem;
+    a {
+      @apply text-black;
+    }
+  }
+}
