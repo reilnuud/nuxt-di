@@ -2,7 +2,7 @@
   <div
     class="py-6 fixed z-20 inset-0 transform transition duration-200 md:hidden"
     :class="{
-      'text-black bg-white': theme === 'light',
+      'text-purple bg-gray': theme === 'light',
       'text-white bg-purple': theme === 'dark',
       'opacity-0 pointer-events-none translate-y-4': !navOpen
     }"
@@ -17,7 +17,11 @@
     <container>
       <nav class="flex flex-col ml-auto font-medium text-xl -mx-3">
         <!-- logo -->
-        <nuxt-link to="/" class="block mb-12 flex items-center">
+        <nuxt-link
+          to="/"
+          class="block mb-12 flex items-center"
+          @click.native="toggleNav"
+        >
           <logo class="fill-current w-48" />
         </nuxt-link>
         <!-- links -->
