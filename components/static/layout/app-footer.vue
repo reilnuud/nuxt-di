@@ -12,7 +12,7 @@
           <div class="font-normal mt-6 text-xs">&copy; {{ copyright }}</div>
         </div>
         <div class="ml-auto px-3 lg:px-6">
-          <nav class="flex items-center font-medium -mx-3">
+          <nav class="flex flex-wrap items-center font-medium -mx-3">
             <div
               v-for="item in resolvedLinks"
               :key="`${item.link}-header-nav`"

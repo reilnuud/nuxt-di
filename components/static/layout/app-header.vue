@@ -1,12 +1,16 @@
 <template>
   <header
     class="py-3 absolute z-10 top-0 left-0 right-0 transition duration-200"
-    :class="{ 'text-black': theme === 'light', 'text-white': theme === 'dark' }"
+    :class="{
+      'text-purple': theme === 'light',
+      'text-white': theme === 'dark'
+    }"
   >
     <div
-      class="opacity-50 bg-gradient-to-b from-purple to-transparent absolute top-0 right-0 left-0 h-36 z-0 transition duration-200"
+      class=" bg-gradient-to-b from-purple to-transparent absolute top-0 right-0 left-0 h-36 z-0 transition duration-200"
       :class="{
-        'opacity-0': theme === 'light'
+        'opacity-0': theme === 'light',
+        'opacity-50': theme === 'dark'
       }"
     />
     <container class="relative z-10">

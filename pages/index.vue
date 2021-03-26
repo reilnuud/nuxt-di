@@ -80,12 +80,8 @@ export default {
       }
     };
   },
-  // computed: {
-  //   swiper() {
-  //     return this.$refs.homeCarousel.$swiper;
-  //   }
-  // },
   mounted() {
+    this.$store.commit('setTheme', 'dark');
     setTimeout(() => {
       gsap.to(this.$refs.logomark, { y: 0, opacity: 1, duration: 0.5 });
     }, 500);
