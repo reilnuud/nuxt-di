@@ -1,18 +1,18 @@
 <template>
-  <div class="py-12">
+  <div class="pt-12 bg-purple">
     <container>
-      <div class="border-t-2 border-black" />
+      <div class="border-t-2 border-white text-white" />
       <div
-        class="flex flex-wrap font-semibold uppercase tracking-1 text-xs py-3 -mx-3 lg:-mx-6"
+        class="flex flex-wrap font-medium text-white tracking-1 text-xs py-6 -mx-3 lg:-mx-6"
       >
         <div class="px-3 lg:px-6">
           <nuxt-link to="/" class="block flex items-center">
-            <span class="font-bold">nuxt-rude</span>
+            <logo class="w-48 fill-white" />
           </nuxt-link>
-          <div class="font-normal text-xxs">&copy; {{ copyright }}</div>
+          <div class="font-normal mt-6 text-xs">&copy; {{ copyright }}</div>
         </div>
         <div class="ml-auto px-3 lg:px-6">
-          <nav class="flex items-center font-bold uppercase tracking-1 -mx-3">
+          <nav class="flex items-center font-medium -mx-3">
             <div
               v-for="item in resolvedLinks"
               :key="`${item.link}-header-nav`"

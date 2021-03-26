@@ -1,7 +1,8 @@
 <template>
   <div class="flex flex-col min-h-screen font-sans text-black">
     <app-header />
-    <nuxt class="flex-grow" />
+    <mobile-nav />
+    <nuxt class="flex-grow relative z-0" />
     <app-footer />
   </div>
 </template>

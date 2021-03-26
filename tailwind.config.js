@@ -4,7 +4,7 @@ const Color = require('color');
 const baseColors = {
   white: '#f3f2f2',
   purple: '#41204d',
-  gray: '#e2e3d6',
+  gray: '#e2e2d6',
   black: '#333333'
 };
 
@@ -153,6 +153,9 @@ module.exports = {
         normal: '1.666',
         loose: '2',
         looser: '2.666'
+      },
+      maxWidth: {
+        'max-w-8xl': '88rem'
       },
       width: {
         '1/8': `${(1 / 8) * 100}%`,

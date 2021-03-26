@@ -1,9 +1,15 @@
 // initialize
 import Vue from 'vue';
+import VueAwesomeSwiper from 'vue-awesome-swiper';
 
 // debouncing & component loading
 import upperFirst from 'lodash/upperFirst';
 import camelCase from 'lodash/camelCase';
+
+// import style (>= Swiper 6.x)
+import 'swiper/swiper-bundle.css';
+
+Vue.use(VueAwesomeSwiper);
 
 Vue.config.productionTip = false;
 Vue.config.performance = true;

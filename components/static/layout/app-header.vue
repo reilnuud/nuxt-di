@@ -1,14 +1,25 @@
 <template>
-  <header class="py-3">
-    <container>
+  <header
+    class="py-3 absolute z-10 top-0 left-0 right-0 transition duration-200"
+    :class="{ 'text-black': theme === 'light', 'text-white': theme === 'dark' }"
+  >
+    <div
+      class="opacity-50 bg-gradient-to-b from-purple to-transparent absolute top-0 right-0 left-0 h-36 z-0 transition duration-200"
+      :class="{
+        'opacity-0': theme === 'light'
+      }"
+    />
+    <container class="relative z-10">
       <div class="-mx-3 md:-mx-6 flex items-center justify-between">
         <nuxt-link to="/" class="block px-3 md:px-6 flex items-center">
-          <rm-treemark class="fill-white p-2 rounded-full bg-black w-16 h-16" />
-          <span class="ml-2 font-bold">nuxt-rude</span>
+          <logo class="fill-current w-36 sm:w-48" />
         </nuxt-link>
         <div class="px-3 lg:px-6">
           <nav
-            class="flex items-center ml-auto font-bold uppercase text-sm tracking-1 -mx-3"
+            ref="nav"
+            class="hidden md:flex relative items-center ml-auto font-medium text-sm -mx-3"
+            @mouseenter="mouseInNav(true)"
+            @mouseleave="mouseInNav(false)"
           >
             <!-- links -->
             <div
@@ -17,13 +28,23 @@
               class="px-3"
             >
               <app-link
-                class="app-header__link p-1 transition duration-200"
+                class="app-header__link flex py-1 transition duration-200"
                 :link="item.link"
+                @mouseenter.native="hover"
+                @click.native="setActive"
                 >{{ item.label }}</app-link
               >
             </div>
+            <div
+              ref="underline"
+              class="absolute bottom-0 h-px"
+              :class="{
+                'bg-black': theme === 'light',
+                'bg-white': theme === 'dark'
+              }"
+            />
             <!-- button -->
-            <div v-if="button" class="px-3">
+            <!-- <div v-if="button && button.link.length" class="px-3">
               <btn
                 class="app-header__link transition duration-200"
                 :link="button.link"
@@ -31,8 +52,15 @@
                 color="black"
                 >{{ button.label }}</btn
               >
-            </div>
+            </div> -->
           </nav>
+          <button
+            type="button"
+            class="flex md:hidden items-center justify-center p-2 text-xl cursor-pointer"
+            @click="toggleNav"
+          >
+            <i class="material-icons">menu</i>
+          </button>
         </div>
       </div>
     </container>
@@ -40,6 +68,7 @@
 </template>
 
 <script>
+import gsap from 'gsap';
 const globalSettings = process.env.SITE_SETTINGS;
 export default {
   data() {
@@ -54,12 +83,40 @@ export default {
           label: link.primary.label,
           link: link.primary.link
         };
-      })
+      }),
+      isMouseInNav: false
     };
+  },
+  computed: {
+    theme() {
+      return this.$store.state.theme;
+    }
+  },
+  methods: {
+    toggleNav() {
+      this.$store.commit('setNavOpen', !this.$store.state.navOpen);
+    },
+    hover(e) {
+      gsap.to(this.$refs.underline, {
+        x: e.target.offsetLeft,
+        scale: 1,
+        width: e.target.clientWidth,
+        duration: 0.1
+      });
+    },
+    setActive(e) {
+      // do stuff
+    },
+    mouseInNav(state) {
+      this.isMouseInNav = state;
+      if (!state) {
+        gsap.to(this.$refs.underline, {
+          scale: 0,
+          duration: 0.1
+        });
+      }
+    }
   }
-  // mounted() {
-  //   console.log(this.globalSettings);
-  // }
 };
 </script>
 
