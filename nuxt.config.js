@@ -214,7 +214,7 @@ const nuxtSettings = async () => {
         plugins: [
           require('postcss-import')(),
           require('postcss-url')(),
-          require('@tailwindcss/postcss7-compat')(),
+          require('tailwindcss')(),
           require('postcss-normalize')(),
           require('precss')({
             features: {
