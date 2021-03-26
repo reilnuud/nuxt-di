@@ -44,7 +44,7 @@
     "postcss-url": "^10.1.1",
     "precss": "^4.0.0",
     "prismic-javascript": "^3.0.2",
-    "swiper": "^6.5.0",
+    "swiper": "5.4.5",
     "topojson-client": "^3.1.0",
     "vue-awesome-swiper": "^4.1.1",
     "vue-images-loaded": "^1.1.2"

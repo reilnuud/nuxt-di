@@ -137,7 +137,11 @@ const nuxtSettings = async () => {
     css: ['@/assets/pcss/index.pcss'],
 
     // plugins
-    plugins: [{ src: '@/plugins/global.js' }, { src: '@/plugins/is-dark.js' }],
+    plugins: [
+      { src: '@/plugins/global.js' },
+      { src: '@/plugins/is-dark.js' },
+      { src: '@/plugins/carousel.js', ssr: false }
+    ],
 
     // modules
     modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/prismic'],

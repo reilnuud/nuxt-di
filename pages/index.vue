@@ -19,19 +19,20 @@
             <imgix v-if="slide.image.url" :image="slide.image" fit-container />
           </div>
           <container
-            class="flex flex-col justify-end flex-grow relative z-10"
+            class="flex flex-col justify-end flex-grow relative z-20"
             style="font-size:8vw;"
+            data-swiper-parallax="-250"
           >
             <h2 class="text-white tracking-1 font-bold xl:text-6xl">
               {{ slide.heading }}
             </h2>
           </container>
+          <div
+            class="opacity-50 bg-gradient-to-t from-purple to-transparent absolute bottom-0 right-0 left-0 h-64 z-10 transition duration-200"
+          />
         </div>
       </swiper-slide>
     </swiper>
-    <div
-      class="opacity-50 bg-gradient-to-t from-purple to-transparent absolute bottom-0 right-0 left-0 h-64 z-0 transition duration-200"
-    />
   </div>
 </template>
 
@@ -67,8 +68,10 @@ export default {
     return {
       install: false,
       swiperOptions: {
+        parallax: true,
         autoplay: {
-          delay: 5000
+          delay: 5000,
+          disableOnInteraction: false
         },
         keyboard: {
           enabled: true,
@@ -77,11 +80,11 @@ export default {
       }
     };
   },
-  computed: {
-    swiper() {
-      return this.$refs.homeCarousel.$swiper;
-    }
-  },
+  // computed: {
+  //   swiper() {
+  //     return this.$refs.homeCarousel.$swiper;
+  //   }
+  // },
   mounted() {
     setTimeout(() => {
       gsap.to(this.$refs.logomark, { y: 0, opacity: 1, duration: 0.5 });

@@ -6,8 +6,9 @@
   >
     <img
       ref="img"
-      class="absolute inset-0 object-cover w-full h-full opacity-0"
+      class="absolute inset-0 object-cover w-full h-full opacity-0 transition duration-200"
       :src="src"
+      @load="loaded = true"
     />
   </figure>
 </template>
@@ -46,12 +47,10 @@ export default {
     }
   },
   mounted() {
-    const _this = this;
-    if (!this.$refs.img.complete) {
-      this.$refs.img.onload(() => {
-        _this.loaded = true;
-      });
-    }
+    // const _this = this;
+    // this.$refs.img.on('load', () => {
+    //   _this.loaded = true;
+    // });
     this.buildUrls(this.image);
   },
   methods: {
