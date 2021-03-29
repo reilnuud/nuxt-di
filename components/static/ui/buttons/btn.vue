@@ -55,11 +55,11 @@ export default {
     defaultClasses() {
       let baseClasses = `flex rounded items-center leading-none justify-center font-sans tracking-1 uppercase font-bold relative group cursor-pointer rounded-sm transition duration-200`;
       if (this.outline) {
-        baseClasses += ` border-2 border-${this.color} hover:bg-${this.color} text-${this.color} hover:text-white`;
+        baseClasses += ` border-2 border-${this.color} hover:bg-${this.color} text-${this.color} hover:text-black`;
       } else if (this.color === 'white') {
         baseClasses += ` text-green bg-${this.color} hover:bg-blue hover:border-green border-2 border-${this.color}`;
       } else {
-        baseClasses += ` text-white bg-${this.color} hover:bg-${this.color}-light hover:border-${this.color}-light border-2 border-${this.color}`;
+        baseClasses += ` text-black bg-${this.color} hover:bg-${this.color}-light hover:border-${this.color}-light border-2 border-${this.color}`;
       }
       if (this.fluid) {
         baseClasses += ` w-full`;

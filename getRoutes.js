@@ -73,6 +73,7 @@ export const getPrismicRoutes = new Promise((resolve, reject) => {
     routes.push({ preview: '/preview' });
     routes.push({ news: '/news' });
     routes.push({ home: '/' });
+    routes.push({ about: '/about' });
     console.log('Page Routes:');
     console.log(routes);
     return routes;
