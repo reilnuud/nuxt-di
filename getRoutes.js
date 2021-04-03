@@ -58,32 +58,28 @@ export const getPrismicRoutes = new Promise((resolve, reject) => {
         }
         return false;
       })
-      .map(page => {
+      .forEach(page => {
         // eslint-disable-next-line no-console
         // check if type is page
         if (page.type === 'page') {
           const pageRoute = getPageRoute(page, query.results);
           routes.push({ [page.uid]: pageRoute });
         }
-        if (page.type === 'post') {
-          const pageRoute = `/news/${page.uid}`;
-          routes.push({ [page.uid]: pageRoute });
-        }
         if (page.type === 'case') {
           const pageRoute = `/practice/${page.uid}`;
           routes.push({ [page.uid]: pageRoute });
         }
+        if (page.type === 'team_member') {
+          const pageRoute = `/our-team/${page.uid}`;
+          routes.push({ [page.uid]: pageRoute });
+        }
       });
     routes.push({ preview: '/preview' });
-    routes.push({ news: '/news' });
     routes.push({ home: '/' });
     routes.push({ about: '/about' });
     routes.push({ practice: '/practice' });
     routes.push({ 'our-team': '/our-team' });
     routes.push({ contact: '/contact' });
-
-    console.log('Page Routes:');
-    console.log(routes);
     return routes;
   });
 
