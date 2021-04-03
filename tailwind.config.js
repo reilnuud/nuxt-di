@@ -101,7 +101,7 @@ module.exports = {
       '4k': '3840px'
     },
     fontFamily: {
-      sans: ['Montserrat', 'sans-serif']
+      sans: ['Gotham SSm B', 'sans-serif']
     },
     letterSpacing: {
       '-1': '-0.056rem',

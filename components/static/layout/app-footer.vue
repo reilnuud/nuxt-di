@@ -2,30 +2,43 @@
   <div
     class="pt-12"
     :class="{
-      'text-purple': theme === 'light',
+      'text-black': theme === 'light',
       'text-white': theme === 'dark'
     }"
   >
     <container>
-      <div
-        class="border-t-2 border-white"
+      <!-- <div
+        class="border-t-2"
         :class="{
-          'border-purple': theme === 'light',
+          'border-black': theme === 'light',
           'border-white': theme === 'dark'
         }"
-      />
-      <div
-        class="div sm:flex flex-wrap md:flex-nowrap font-medium tracking-1 text-xs py-6 -mx-3 lg:-mx-6"
-      >
+      /> -->
+      <div class="div font-normal text-sm py-6 -mx-3 lg:-mx-6">
         <div class="px-3 lg:px-6 mb-6">
           <nuxt-link to="/" class="block flex items-center">
-            <logo class="w-48 fill-current" />
+            <logo class="w-40 fill-current" />
           </nuxt-link>
-          <div class="font-normal mt-6 text-xs">&copy; {{ copyright }}</div>
+          <div class="flex flex -mx-6">
+            <div class="mt-6 text-xs px-6">
+              <div>{{ copyright }}</div>
+              <prismic-rich-text
+                v-if="address !== null"
+                class="leading-normal
+              rich-text"
+                :richtext="address"
+              />
+            </div>
+            <div class="mt-6 text-xs px-6">
+              <app-link :href="`tel:+${telephone}`">{{
+                formattedNumber
+              }}</app-link>
+            </div>
+          </div>
         </div>
-        <div class="ml-auto px-3 lg:px-6">
+        <div class="w-full px-3 lg:px-6">
           <nav
-            class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center font-medium -mx-3"
+            class="grid gap-2 grid-cols-1 max-w-xs text-xs sm:grid-cols-2 md:grid-cols-3 items-center -mx-3"
           >
             <div
               v-for="item in resolvedLinks"
@@ -46,12 +59,13 @@
 </template>
 
 <script>
-import moment from 'moment';
 const globalSettings = process.env.SITE_SETTINGS;
 export default {
   data() {
     return {
-      copyright: moment().format('YYYY') + ' ' + globalSettings.copyright_text,
+      telephone: globalSettings.telephone,
+      address: globalSettings.address,
+      copyright: globalSettings.copyright_text,
       resolvedLinks: globalSettings.body1.map(link => {
         return {
           label: link.primary.label,
@@ -63,6 +77,22 @@ export default {
   computed: {
     theme() {
       return this.$store.state.theme;
+    },
+    formattedNumber() {
+      // Filter only numbers from the input
+      const cleaned = ('' + this.telephone).replace(/\D/g, '');
+
+      // Check if the input is of correct
+      const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
+
+      if (match) {
+        // Remove the matched extension code
+        // Change this to format for any country code.
+        const intlCode = match[1] ? '+1 ' : '';
+        return [intlCode, ' ', match[2], '.', match[3], '.', match[4]].join('');
+      }
+
+      return null;
     }
   }
 };

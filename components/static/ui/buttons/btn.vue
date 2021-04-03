@@ -53,11 +53,11 @@ export default {
   },
   computed: {
     defaultClasses() {
-      let baseClasses = `flex rounded items-center leading-none justify-center font-sans tracking-1 uppercase font-bold relative group cursor-pointer rounded-sm transition duration-200`;
+      let baseClasses = `flex items-center leading-none justify-center font-sans font-normal relative group cursor-pointer transition duration-200`;
       if (this.outline) {
         baseClasses += ` border-2 border-${this.color} hover:bg-${this.color} text-${this.color} hover:text-black`;
       } else if (this.color === 'white') {
-        baseClasses += ` text-green bg-${this.color} hover:bg-blue hover:border-green border-2 border-${this.color}`;
+        baseClasses += ` text-black bg-${this.color} hover:bg-blue hover:border-green border-2 border-${this.color}`;
       } else {
         baseClasses += ` text-black bg-${this.color} hover:bg-${this.color}-light hover:border-${this.color}-light border-2 border-${this.color}`;
       }
@@ -65,15 +65,15 @@ export default {
         baseClasses += ` w-full`;
       }
       if (this.size === 'xl') {
-        return `${baseClasses} py-6 px-8 text-xl`;
+        return `${baseClasses} py-4 px-6 text-xl sm:text-2xl`;
       }
       if (this.size === 'lg') {
-        return `${baseClasses} py-4 px-6 text-lg`;
+        return `${baseClasses} py-2 px-2 text-lg sm:text-xl`;
       }
       if (this.size === 'sm') {
-        return `${baseClasses} py-3 px-4 text-sm`;
+        return `${baseClasses} py-1 px-3 text-xs sm:text-sm`;
       }
-      return `${baseClasses} py-3 px-4`;
+      return `${baseClasses} text-base sm:text-lg py-2 px-3`;
     }
   }
 };
