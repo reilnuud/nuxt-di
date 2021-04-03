@@ -69,11 +69,19 @@ export const getPrismicRoutes = new Promise((resolve, reject) => {
           const pageRoute = `/news/${page.uid}`;
           routes.push({ [page.uid]: pageRoute });
         }
+        if (page.type === 'case') {
+          const pageRoute = `/practice/${page.uid}`;
+          routes.push({ [page.uid]: pageRoute });
+        }
       });
     routes.push({ preview: '/preview' });
     routes.push({ news: '/news' });
     routes.push({ home: '/' });
     routes.push({ about: '/about' });
+    routes.push({ practice: '/practice' });
+    routes.push({ 'our-team': '/our-team' });
+    routes.push({ contact: '/contact' });
+
     console.log('Page Routes:');
     console.log(routes);
     return routes;

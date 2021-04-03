@@ -1,24 +1,17 @@
 <template>
-  <div class="flex-grow pt-48 w-full overflow-hidden relative">
+  <div class="flex-grow pt-32 w-full overflow-hidden relative">
     <container class="py-12">
       <h1
-        class="leading-tight font-light rich-text text-xl sm:text-2xl md:text-3xl"
+        class="leading-none font-light rich-text text-2xl sm:text-3xl md:text-4xl"
       >
         {{ heading }}
       </h1>
+      <div class="border-b-2 my-6 border-black" />
       <prismic-rich-text
         v-if="lead !== null"
-        class="leading-tight font-light rich-text text-xl sm:text-2xl md:text-3xl"
+        class="leading-tight font-light rich-text text-lg sm:text-xl md:text-2xl"
         :richtext="lead"
       />
-      <prismic-rich-text
-        v-if="supporting_copy !== null"
-        class="leading-tight font-light rich-text text-lg sm:text-xl my-6"
-        :richtext="supporting_copy"
-      />
-      <!-- <div class="mt-6">
-        <btn color="white" size="lg" :to="button.link">{{ button.text }}</btn>
-      </div> -->
     </container>
     <div class="text-black py-6">
       <container>
@@ -26,9 +19,9 @@
           <li
             v-for="(area, i) in areas"
             :key="area.uid"
-            class="flex flex-wrap max-w-4xl xl:max-w-5xl sm:flex-nowrap -mx-3 py-8"
+            class="flex flex-wrap sm:flex-nowrap -mx-3 py-8"
             :class="{
-              'border-b border-purple': i !== core_messaging.length - 1
+              'border-b border-black': i !== areas.length - 1
             }"
           >
             <div
@@ -41,9 +34,13 @@
                 class="leading-normal rich-text"
                 :richtext="area.descriptor"
               />
-              <ul>
-                <li v-for="example in area.cases" :key="example.uid">
-                  {{ example.title }}
+              <ul class="py-2 mt-8">
+                <li
+                  v-for="example in area.cases"
+                  :key="example.uid"
+                  class="py-2"
+                >
+                  <app-link :to="example.text">{{ example.text }}</app-link>
                 </li>
               </ul>
             </div>
@@ -59,7 +56,7 @@
 export default {
   async asyncData({ $prismic, error }) {
     try {
-      const res = await $prismic.api.getSingle('practice');
+      const res = await $prismic.api.getByUID('practices', 'practice');
       const document = res.data;
       delete res.data;
       return {
