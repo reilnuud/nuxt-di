@@ -5,7 +5,9 @@
       class="absolute opacity-0 transform translate-y-8 inset-0 p-12 sm:pt-20 pb-24 sm:pb-36 md:pb-40 z-10 flex"
     >
       <container class="flex-grow">
-        <logomark-outline class="block fill-white w-auto max-w-full h-full" />
+        <div class="px-12 relative h-full w-full">
+          <logomark-outline class="block fill-white w-auto max-w-full h-full" />
+        </div>
       </container>
     </div>
     <swiper
