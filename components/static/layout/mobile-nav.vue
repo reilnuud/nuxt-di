@@ -1,9 +1,9 @@
 <template>
   <div
-    class="py-6 fixed z-20 bg-white inset-0 transform transition duration-200 md:hidden"
+    class="py-6 fixed z-20 inset-0 transform transition duration-200 md:hidden"
     :class="{
-      'text-purple bg-gray': theme === 'light',
-      'text-white bg-purple': theme === 'dark',
+      'text-black bg-gray': theme.header === 'light',
+      'text-white bg-purple': theme.header === 'dark',
       'opacity-0 pointer-events-none translate-y-4': !navOpen
     }"
   >
