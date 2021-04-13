@@ -1,6 +1,6 @@
 <template>
   <div
-    class="py-6 fixed z-20 inset-0 transform transition duration-200 md:hidden"
+    class="py-6 fixed z-20 bg-white inset-0 transform transition duration-200 md:hidden"
     :class="{
       'text-purple bg-gray': theme === 'light',
       'text-white bg-purple': theme === 'dark',

@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 const createStore = () => {
   return new Vuex.Store({
     state: () => ({
-      theme: 'dark',
+      theme: { header: 'dark', footer: 'light' },
       navOpen: false
     }),
     mutations: {

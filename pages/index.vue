@@ -2,7 +2,7 @@
   <div class="flex-grow w-full overflow-hidden bg-purple relative">
     <div
       ref="logomark"
-      class="absolute opacity-0 transform translate-y-8 inset-0 lg:px-12 pr-12 py-24 sm:py-36 lg:py-48 z-10 flex"
+      class="absolute opacity-0 transform translate-y-8 inset-0 p-12 sm:pt-20 pb-24 sm:pb-36 md:pb-40 z-10 flex"
     >
       <container class="flex-grow">
         <logomark-outline class="block fill-white w-auto max-w-full h-full" />
@@ -23,7 +23,7 @@
             style="font-size:8vw;"
             data-swiper-parallax="-250"
           >
-            <h2 class="text-white tracking-1 font-bold xl:text-6xl">
+            <h2 class="text-white tracking-1 font-bold xl:text-5xl">
               {{ slide.heading }}
             </h2>
           </container>
@@ -81,7 +81,7 @@ export default {
     };
   },
   mounted() {
-    this.$store.commit('setTheme', 'dark');
+    this.$store.commit('setTheme', { header: 'dark', footer: 'dark' });
     setTimeout(() => {
       gsap.to(this.$refs.logomark, { y: 0, opacity: 1, duration: 0.5 });
     }, 500);

@@ -150,6 +150,7 @@ module.exports = {
       lineHeight: {
         tighter: '1.111',
         tight: '1.333',
+        medium: '1.45',
         normal: '1.666',
         loose: '2',
         looser: '2.666'

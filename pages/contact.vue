@@ -1,45 +1,49 @@
 <template>
-  <div class="flex-grow pt-48 w-full overflow-hidden relative">
+  <div
+    class="flex-grow pt-48 bg-purple text-white w-full overflow-hidden relative"
+  >
     <container class="py-12">
-      <prismic-rich-text
-        v-if="lead !== null"
-        class="leading-tight font-light rich-text text-xl sm:text-2xl md:text-3xl"
-        :richtext="lead"
-      />
-      <prismic-rich-text
-        v-if="supporting_copy !== null"
-        class="leading-tight font-light rich-text text-lg sm:text-xl my-6"
-        :richtext="supporting_copy"
-      />
-      <div class="mt-6">
-        <btn color="white" size="lg" :to="button.link">{{ button.text }}</btn>
-      </div>
+      <h1 class="font-light text-xl sm:text-2xl md:text-3xl" :richtext="lead">
+        {{ heading }}
+      </h1>
     </container>
-    <div class="bg-gray text-black py-6">
+    <div class="bg-gray py-12 text-black py-6">
       <container>
-        <ul>
-          <li
-            v-for="(message, i) in core_messaging"
-            :key="message.uid"
-            class="flex flex-wrap max-w-4xl xl:max-w-5xl sm:flex-nowrap -mx-3 py-8"
-            :class="{
-              'border-b border-purple': i !== core_messaging.length - 1
-            }"
-          >
-            <div
-              class="w-full mb-4 text-lg sm:text-base sm:mb-0 leading-normal sm:w-1/4 md:w-1/3 flex-shrink-0 px-3"
-            >
-              {{ message.label }}
-            </div>
-            <div class="px-3">
-              <prismic-rich-text
-                v-if="supporting_copy !== null"
-                class="leading-normal rich-text"
-                :richtext="message.copy"
-              />
-            </div>
-          </li>
-        </ul>
+        <div class="flex flex-wrap -mx-6">
+          <div class="w-full px-6 md:w-1/2">
+            <prismic-rich-text
+              class="leading-normal rich-text"
+              :richtext="description"
+            />
+          </div>
+          <div class="w-full px-6 md:w-1/2">
+            <form class="mt-6 md:mt-0">
+              <div class="-mx-2 flex flex-wrap">
+                <div class="px-2 w-full mb-1">Name</div>
+                <div class="px-2 w-full sm:w-1/2 flex flex-col mb-4">
+                  <input class="order-1 px-2 py-1" />
+                  <label class="order-2 mt-1 text-sm ">First</label>
+                </div>
+                <div class="px-2 w-full sm:w-1/2 flex flex-col mb-4">
+                  <input class="order-1 px-2 py-1" />
+                  <label class="order-2 mt-1 text-sm ">Last</label>
+                </div>
+              </div>
+              <div class="flex flex-col md:-mt-2 mb-4">
+                <input class="order-2 px-2 py-1" />
+                <label class="order-1 mb-1">Email</label>
+              </div>
+              <div class="flex flex-col mb-4">
+                <textarea class="order-2 px-2 py-1" style="min-height:120px;" />
+                <label class="order-1 mb-1">Message</label>
+              </div>
+              <div class="mt-6">
+                <btn color="black" type="submit">Send</btn>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- stuff -->
       </container>
     </div>
   </div>
@@ -56,19 +60,8 @@ export default {
       return {
         ...res,
         document,
-        lead: document.lead,
-        supporting_copy: document.supporting_copy,
-        button: {
-          url: document.button_link,
-          text: document.button_text
-        },
-        core_messaging: document.core_messaging.map(message => {
-          return {
-            uid: message.uid,
-            label: message.label,
-            copy: message.descriptor
-          };
-        })
+        heading: document.heading,
+        description: document.description
       };
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' });
@@ -78,7 +71,7 @@ export default {
     return {};
   },
   mounted() {
-    this.$store.commit('setTheme', 'dark');
+    this.$store.commit('setTheme', { header: 'dark', footer: 'light' });
   }
 };
 </script>

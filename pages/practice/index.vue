@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-grow pt-32 w-full overflow-hidden relative">
+  <div class="flex-grow pt-32 w-full text-black overflow-hidden relative">
     <container class="py-12">
       <h1
         class="leading-none font-light rich-text text-2xl sm:text-3xl md:text-4xl"
@@ -82,7 +82,7 @@ export default {
     return {};
   },
   mounted() {
-    this.$store.commit('setTheme', 'light');
+    this.$store.commit('setTheme', { header: 'light', footer: 'light' });
   }
 };
 </script>

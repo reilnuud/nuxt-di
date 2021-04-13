@@ -2,15 +2,15 @@
   <header
     class="py-3 absolute z-10 top-0 left-0 right-0 transition duration-200"
     :class="{
-      'text-purple': theme === 'light',
-      'text-white': theme === 'dark'
+      'text-purple': theme.header === 'light',
+      'text-white': theme.header === 'dark'
     }"
   >
     <div
       class=" bg-gradient-to-b from-purple to-transparent absolute top-0 right-0 left-0 h-36 z-0 transition duration-200"
       :class="{
-        'opacity-0': theme === 'light',
-        'opacity-50': theme === 'dark'
+        'opacity-0': theme.header === 'light',
+        'opacity-50': theme.header === 'dark'
       }"
     />
     <container class="relative z-10">
@@ -43,8 +43,8 @@
               ref="underline"
               class="absolute bottom-0 h-px"
               :class="{
-                'bg-black': theme === 'light',
-                'bg-white': theme === 'dark'
+                'bg-black': theme.header === 'light',
+                'bg-gray': theme.header === 'dark'
               }"
             />
             <!-- button -->

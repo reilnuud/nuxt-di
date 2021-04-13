@@ -59,21 +59,21 @@ export default {
       } else if (this.color === 'white') {
         baseClasses += ` text-black bg-${this.color} hover:bg-blue hover:border-green border-2 border-${this.color}`;
       } else {
-        baseClasses += ` text-black bg-${this.color} hover:bg-${this.color}-light hover:border-${this.color}-light border-2 border-${this.color}`;
+        baseClasses += ` text-white bg-${this.color} hover:bg-${this.color}-light hover:border-${this.color}-light border-2 border-${this.color}`;
       }
       if (this.fluid) {
         baseClasses += ` w-full`;
       }
       if (this.size === 'xl') {
-        return `${baseClasses} py-4 px-6 text-xl sm:text-2xl`;
+        return `${baseClasses} py-4 px-6 text-lg sm:text-xl`;
       }
       if (this.size === 'lg') {
-        return `${baseClasses} py-2 px-2 text-lg sm:text-xl`;
+        return `${baseClasses} py-2 px-2 text-xl sm:text-lg`;
       }
       if (this.size === 'sm') {
-        return `${baseClasses} py-1 px-3 text-xs sm:text-sm`;
+        return `${baseClasses} py-1 px-3 text-xxs sm:text-xs`;
       }
-      return `${baseClasses} text-base sm:text-lg py-2 px-3`;
+      return `${baseClasses} text-sm sm:text-base py-2 px-3`;
     }
   }
 };

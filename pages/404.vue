@@ -3,7 +3,7 @@
 <script>
 export default {
   mounted() {
-    this.$store.commit('setTheme', 'light');
+    this.$store.commit('setTheme', { header: 'light', footer: 'light' });
   }
 };
 </script>

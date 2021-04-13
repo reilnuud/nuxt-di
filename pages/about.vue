@@ -1,9 +1,11 @@
 <template>
-  <div class="flex-grow pt-48 w-full overflow-hidden relative">
+  <div
+    class="flex-grow pt-48 bg-purple text-white w-full overflow-hidden relative"
+  >
     <container class="py-12">
       <prismic-rich-text
         v-if="lead !== null"
-        class="leading-tight font-light rich-text text-xl sm:text-2xl md:text-3xl"
+        class="leading-medium font-light rich-text text-xl sm:text-2xl md:text-3xl"
         :richtext="lead"
       />
       <prismic-rich-text
@@ -78,7 +80,7 @@ export default {
     return {};
   },
   mounted() {
-    this.$store.commit('setTheme', 'dark');
+    this.$store.commit('setTheme', { header: 'dark', footer: 'light' });
   }
 };
 </script>

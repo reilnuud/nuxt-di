@@ -2,8 +2,8 @@
   <div
     class="pt-12"
     :class="{
-      'text-black': theme === 'light',
-      'text-white': theme === 'dark'
+      'text-black': theme.footer === 'light',
+      'text-gray': theme.footer === 'dark'
     }"
   >
     <container>
@@ -38,7 +38,7 @@
         </div>
         <div class="w-full px-3 lg:px-6">
           <nav
-            class="grid gap-2 grid-cols-1 max-w-xs text-xs sm:grid-cols-2 md:grid-cols-3 items-center -mx-3"
+            class="grid gap-2 grid-cols-1 max-w-md text-xs sm:grid-cols-2 md:grid-cols-3 items-center -mx-3"
           >
             <div
               v-for="item in resolvedLinks"

@@ -2,8 +2,8 @@
   <div
     class="flex flex-col min-h-screen font-sans transition duration-200"
     :class="{
-      'text-purple bg-gray': theme === 'light',
-      'text-white bg-purple': theme === 'dark'
+      'text-purple bg-gray': theme.footer === 'light',
+      'text-white bg-purple': theme.footer === 'dark'
     }"
   >
     <app-header />
