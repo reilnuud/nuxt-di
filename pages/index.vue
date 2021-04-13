@@ -20,10 +20,10 @@
           </div>
           <container
             class="flex flex-col justify-end flex-grow relative z-20"
-            style="font-size:8vw;"
+            style="font-size:7.2vw;"
             data-swiper-parallax="-250"
           >
-            <h2 class="text-white tracking-1 font-bold xl:text-5xl">
+            <h2 class="text-white tracking-1 font-bold xl:text-4xl">
               {{ slide.heading }}
             </h2>
           </container>

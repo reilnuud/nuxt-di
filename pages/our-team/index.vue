@@ -15,7 +15,7 @@
           >
             <app-link
               :to="`/our-team/${member.slug}`"
-              class="flex flex-col items-start w-full"
+              class="flex flex-col items-start w-full group"
             >
               <div class="w-full relative" style="padding-bottom:100%;">
                 <imgix
@@ -26,9 +26,11 @@
               </div>
               <div class="mt-6">
                 <div class="font-bold">{{ member.name }}</div>
-                <div class="-mr-2 border-b-white border-b mt-3" />
+                <div
+                  class="-mr-2 border-b-white border-b mt-2 opacity-0 group-hover:opacity-100 transition duration-200"
+                />
               </div>
-              <div class="mt-3 uppercase">{{ member.title }}</div>
+              <div class="mt-2 uppercase">{{ member.title }}</div>
             </app-link>
           </li>
         </ul>
