@@ -1,9 +1,7 @@
 <template>
   <div class="flex-grow pt-32 w-full text-black overflow-hidden relative">
     <container class="py-12">
-      <h1
-        class="leading-none font-light rich-text text-2xl sm:text-3xl md:text-4xl"
-      >
+      <h1 class="font-light text-xl sm:text-2xl md:text-3xl">
         {{ heading }}
       </h1>
       <div class="border-b-2 my-6 border-black" />

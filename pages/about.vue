@@ -5,7 +5,7 @@
     <container class="py-12">
       <prismic-rich-text
         v-if="lead !== null"
-        class="leading-medium font-light rich-text text-xl sm:text-2xl md:text-3xl"
+        class="leading-tight font-light rich-text text-lg sm:text-xl md:text-2xl"
         :richtext="lead"
       />
       <prismic-rich-text

@@ -3,7 +3,7 @@
     class="flex-grow pt-48 bg-purple text-white w-full overflow-hidden relative"
   >
     <container class="py-12">
-      <h1 class="font-light text-xl sm:text-2xl md:text-3xl" :richtext="lead">
+      <h1 class="font-light text-xl sm:text-2xl md:text-3xl">
         {{ heading }}
       </h1>
     </container>

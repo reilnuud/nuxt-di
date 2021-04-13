@@ -7,11 +7,11 @@
         {{ heading }}
       </h1>
       <div class="max-w-xl">
-        <ul class="-mx-3 flex flex-wrap">
+        <ul class="-mx-6 md:-mx-8 lg:-mx-12 flex flex-wrap">
           <li
             v-for="member in members"
             :key="member.uid"
-            class="w-1/2 px-3 my-6"
+            class="w-1/2 px-6 md:px-8 lg:px-12 my-6"
           >
             <app-link
               :to="`/our-team/${member.slug}`"
