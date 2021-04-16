@@ -18,7 +18,7 @@
       <swiper-slide v-for="slide in carousel" :key="slide.uid">
         <div class="relative min-h-screen pt-24 pb-12 flex flex-col items-end">
           <div class="absolute inset-0 z-0">
-            <imgix v-if="slide.image.url" :image="slide.image" fit-container />
+            <imgix :image="slide.image" fit-container :fade="false" />
           </div>
           <container
             class="flex flex-col justify-end flex-grow relative z-20"
@@ -70,15 +70,14 @@ export default {
     return {
       install: false,
       swiperOptions: {
-        parallax: true,
+        fadeEffect: { crossFade: true },
         autoplay: {
-          delay: 5000,
+          delay: 2500,
           disableOnInteraction: false
         },
-        keyboard: {
-          enabled: true,
-          onlyInViewport: false
-        }
+        speed: 500,
+        slidersPerView: 1,
+        effect: 'fade'
       }
     };
   },
@@ -90,3 +89,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.swiper-slide-duplicate-active {
+  opacity: 1;
+}
+</style>

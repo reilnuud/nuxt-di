@@ -173,6 +173,7 @@ module.exports = {
   },
   variants: {
     backgroundColor: ['responsive', 'hover', 'group-hover'],
-    opacity: ['responsive', 'hover', 'group-hover']
+    opacity: ['responsive', 'hover', 'group-hover'],
+    width: ['responsive', 'hover', 'group-hover']
   }
 };

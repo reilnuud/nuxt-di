@@ -6,7 +6,8 @@
   >
     <img
       ref="img"
-      class="absolute inset-0 object-cover w-full h-full opacity-0 transition duration-200"
+      class="absolute inset-0 object-cover w-full h-full transition duration-200"
+      :class="{ 'opacity-0': fade }"
       :src="src"
       @load="loaded = true"
     />
@@ -17,6 +18,10 @@
 import gsap from 'gsap';
 export default {
   props: {
+    fade: {
+      type: Boolean,
+      default: true
+    },
     image: {
       type: Object,
       default: null
