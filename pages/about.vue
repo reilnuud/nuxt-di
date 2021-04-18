@@ -29,9 +29,11 @@
             }"
           >
             <div
-              class="w-full mb-4 text-lg sm:text-base sm:mb-0 leading-normal sm:w-1/4 md:w-1/3 flex-shrink-0 px-3"
+              class="w-full mb-4 font-bold text-lg sm:mb-0 leading-tight pt-1 sm:w-1/4 md:w-1/3 flex-shrink-0 px-3"
             >
-              {{ message.label }}
+              <div style="max-width:300px;">
+                {{ message.label }}
+              </div>
             </div>
             <div class="px-3">
               <prismic-rich-text

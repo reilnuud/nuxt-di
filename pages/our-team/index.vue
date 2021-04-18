@@ -27,10 +27,10 @@
               <div class="mt-6">
                 <div class="font-bold">{{ member.name }}</div>
                 <div
-                  class="-mr-2 border-b-white border-b mt-2 opacity-0 w-0 group-hover:w-full group-hover:opacity-100 transition-all duration-200"
+                  class="-mr-2 border-b-white border-b mt-1 opacity-0 w-0 group-hover:w-full group-hover:opacity-100 transition-all duration-200"
                 />
               </div>
-              <div class="mt-2 uppercase">{{ member.title }}</div>
+              <div class="mt-1 uppercase">{{ member.title }}</div>
             </app-link>
           </li>
         </ul>

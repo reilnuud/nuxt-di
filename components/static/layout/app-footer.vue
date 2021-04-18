@@ -1,8 +1,8 @@
 <template>
   <div
-    class="pt-12"
+    class="py-8"
     :class="{
-      'text-black': theme.footer === 'light',
+      'text-purple': theme.footer === 'light',
       'text-gray': theme.footer === 'dark'
     }"
   >
@@ -29,16 +29,16 @@
                 :richtext="address"
               />
             </div>
-            <div class="mt-6 text-xs px-6">
+            <!-- <div class="mt-6 text-xs px-6">
               <app-link :href="`tel:+${telephone}`">{{
                 formattedNumber
               }}</app-link>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="w-full px-3 lg:px-6">
           <nav
-            class="grid gap-2 grid-cols-1 max-w-md text-xs sm:grid-cols-2 md:grid-cols-3 items-center -mx-3"
+            class="grid gap-2 grid-cols-1 max-w-md text-xs items-center -mx-3"
           >
             <div
               v-for="item in resolvedLinks"

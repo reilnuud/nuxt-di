@@ -5,7 +5,8 @@
       class="absolute opacity-0 transform translate-y-8 inset-0 p-12 sm:pt-20 pb-24 sm:pb-36 md:pb-40 z-10 flex"
     >
       <container class="flex-grow">
-        <div class="px-12 relative h-full w-full">
+        <!-- TODO: fix mobile width -->
+        <div class="md:px-12 relative h-full w-full">
           <logomark-outline class="block fill-white w-auto max-w-full h-full" />
         </div>
       </container>
@@ -22,10 +23,12 @@
           </div>
           <container
             class="flex flex-col justify-end flex-grow relative z-20"
-            style="font-size:7.2vw;"
+            style="font-size:5vw;"
             data-swiper-parallax="-250"
           >
-            <h2 class="text-white tracking-1 font-bold xl:text-4xl">
+            <h2
+              class="text-white tracking-1 font-bold text-2xl sm:text-inherit xl:text-4xl"
+            >
               {{ slide.heading }}
             </h2>
           </container>

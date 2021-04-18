@@ -139,7 +139,8 @@ module.exports = {
         '7xl': '7rem',
         '8xl': '8rem',
         '9xl': '9rem',
-        '10xl': '10rem'
+        '10xl': '10rem',
+        inherit: 'inherit'
       },
       borderRadius: {
         DEFAULT: '2px'
