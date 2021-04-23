@@ -42,7 +42,7 @@
           >
             <div
               v-for="item in resolvedLinks"
-              :key="`${item.link}-header-nav`"
+              :key="`${item.label}-footer-nav`"
               class="px-3"
             >
               <app-link

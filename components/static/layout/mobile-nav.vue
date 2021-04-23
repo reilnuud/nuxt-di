@@ -27,7 +27,7 @@
         <!-- links -->
         <div
           v-for="item in resolvedLinks"
-          :key="`${item.link}-header-nav`"
+          :key="`${item.label}-mobile-nav`"
           class="mb-6 mt-auto"
         >
           <app-link

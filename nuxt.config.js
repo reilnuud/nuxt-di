@@ -40,16 +40,16 @@ const nuxtSettings = async () => {
       short_name: process.env.SITE_NAME,
       name: process.env.SITE_NAME,
       lang: 'en',
-      theme_color: '#232222',
+      theme_color: '#41204d',
       display: 'standalone',
-      background_color: '#232222'
+      background_color: '#41204d'
     },
 
-    // PWA Options
-    workbox: {
-      offlinePage: '/offline'
-      // Workbox options
-    },
+    // // PWA Options
+    // workbox: {
+    //   offlinePage: '/offline'
+    //   // Workbox options
+    // },
 
     env: {
       PRISMIC_REPO: process.env.PRISMIC_REPO,
@@ -79,13 +79,13 @@ const nuxtSettings = async () => {
           crossorigin: 'anonymous',
           onLoad: "this.rel='stylesheet'"
         },
-        {
-          rel: 'preload',
-          as: 'style',
-          href: process.env.FONT_CSS,
-          crossorigin: 'anonymous',
-          onLoad: "this.rel='stylesheet'"
-        },
+        // {
+        //   rel: 'preload',
+        //   as: 'style',
+        //   href: process.env.FONT_CSS,
+        //   crossorigin: 'anonymous',
+        //   onLoad: "this.rel='stylesheet'"
+        // },
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/icon?family=Material+Icons'
@@ -103,30 +103,6 @@ const nuxtSettings = async () => {
       bodyAttrs: {
         class: 'h-full w-full relative bg-white'
       }
-    },
-
-    // fix missing leaflet assets
-    alias: {
-      './images/layers.png$': path.resolve(
-        __dirname,
-        '../node_modules/leaflet/dist/images/layers.png'
-      ),
-      './images/layers-2x.png$': path.resolve(
-        __dirname,
-        '../node_modules/leaflet/dist/images/layers-2x.png'
-      ),
-      './images/marker-icon.png$': path.resolve(
-        __dirname,
-        '../node_modules/leaflet/dist/images/marker-icon.png'
-      ),
-      './images/marker-icon-2x.png$': path.resolve(
-        __dirname,
-        '../node_modules/leaflet/dist/images/marker-icon-2x.png'
-      ),
-      './images/marker-shadow.png$': path.resolve(
-        __dirname,
-        '../node_modules/leaflet/dist/images/marker-shadow.png'
-      )
     },
 
     // disable loading bar
