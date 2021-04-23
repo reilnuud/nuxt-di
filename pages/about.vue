@@ -5,12 +5,13 @@
     <container class="py-12">
       <prismic-rich-text
         v-if="lead !== null"
-        class="leading-tight font-light rich-text text-lg sm:text-xl md:text-2xl"
+        class="font-light text-xl sm:text-2xl md:text-3xl"
         :richtext="lead"
       />
+      <div class="border-b-2 my-6 border-white" />
       <prismic-rich-text
         v-if="supporting_copy !== null"
-        class="leading-tight font-light rich-text text-lg sm:text-xl my-6"
+        class="leading-tight font-light rich-text text-lg sm:text-xl md:text-2xl"
         :richtext="supporting_copy"
       />
       <div class="mt-6">
