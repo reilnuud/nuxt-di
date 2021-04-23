@@ -50,7 +50,7 @@ export const getPrismicRoutes = new Promise((resolve, reject) => {
   .then(query => {
     // process query to get routes
     const routes = [];
-    const pageTypes = ['post', 'page'];
+    const pageTypes = ['post', 'page', 'team_member'];
     query.results
       .filter(page => {
         if (pageTypes.includes(page.type)) {
