@@ -10,7 +10,7 @@
     <div class="bg-gray py-12 text-black py-6">
       <container>
         <div class="flex flex-wrap -mx-6">
-          <div class="w-full px-6 md:w-1/2">
+          <div class="w-full max-w-md mr-auto px-6 md:w-1/2">
             <prismic-rich-text
               class="leading-normal rich-text"
               :richtext="description"
