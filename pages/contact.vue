@@ -31,6 +31,7 @@
               v-if="!submitted"
               ref="form"
               class="mt-6 md:mt-0"
+              netlify
               @submit="handleSubmit"
             >
               <div class="-mx-2 flex flex-wrap">
