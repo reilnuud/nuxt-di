@@ -28,7 +28,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'green'
+      default: 'white'
     },
     outline: {
       type: Boolean,
@@ -57,7 +57,7 @@ export default {
       if (this.outline) {
         baseClasses += ` border-2 border-${this.color} hover:bg-${this.color} text-${this.color} hover:text-black`;
       } else if (this.color === 'white') {
-        baseClasses += ` text-black bg-${this.color} hover:bg-blue hover:border-green border-2 border-${this.color}`;
+        baseClasses += ` text-black bg-white hover:bg-blue hover:border-green border-2 border-white`;
       } else {
         baseClasses += ` text-white bg-${this.color} hover:bg-${this.color}-light hover:border-${this.color}-light border-2 border-${this.color}`;
       }
