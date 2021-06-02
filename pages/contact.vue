@@ -95,7 +95,6 @@ export default {
       const res = await $prismic.api.getSingle('contact');
       const document = res.data;
       delete res.data;
-      console.log(document);
       return {
         ...res,
         document,
