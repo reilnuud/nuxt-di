@@ -37,21 +37,37 @@
               <div class="-mx-2 flex flex-wrap">
                 <div class="px-2 w-full mb-1">Name</div>
                 <div class="px-2 w-full sm:w-1/2 flex flex-col mb-4">
-                  <input required class="order-1 px-2 py-1" />
+                  <input
+                    name="First Name"
+                    type="text"
+                    required
+                    class="order-1 px-2 py-1"
+                  />
                   <label class="order-2 mt-1 text-xs ">First</label>
                 </div>
                 <div class="px-2 w-full sm:w-1/2 flex flex-col mb-4">
-                  <input required class="order-1 px-2 py-1" />
+                  <input
+                    name="Last Name"
+                    type="text"
+                    required
+                    class="order-1 px-2 py-1"
+                  />
                   <label class="order-2 mt-1 text-xs ">Last</label>
                 </div>
               </div>
               <div class="flex flex-col md:-mt-2 mb-4">
-                <input required class="order-2 px-2 py-1" />
+                <input
+                  name="Email"
+                  type="email"
+                  required
+                  class="order-2 px-2 py-1"
+                />
                 <label class="order-1 mb-1">Email</label>
               </div>
               <div class="flex flex-col mb-4">
                 <textarea
                   required
+                  name="Message"
                   class="order-2 px-2 py-1"
                   style="min-height:120px;"
                 />
