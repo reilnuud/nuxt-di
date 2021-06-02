@@ -70,7 +70,7 @@ const processMetaImage = url => {
 
 Vue.prototype.$processMeta = (_title, meta, _path = '/') => {
   const path = _path.substr(_path.length - 1) !== '/' ? _path + '/' : _path;
-  const metaImageUrl = processMetaImage(meta.image.url);
+  const metaImageUrl = processMetaImage(meta.image?.url);
   const title =
     meta.title && meta.title.length > 1
       ? meta.title
