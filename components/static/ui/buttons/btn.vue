@@ -1,7 +1,7 @@
 <template>
   <!-- external link -->
   <div class="flex">
-    <button v-if="type === 'submit'" :class="defaultClasses" type="type">
+    <button v-if="type === 'submit'" :class="defaultClasses" type="submit">
       <span class="relative z-10 flex items-center"><slot></slot></span>
       <span
         class="transition duration-200 w-full absolute left-0 right-0 bottom-0 h-0 z-0 opacity-50"
