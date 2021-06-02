@@ -141,8 +141,8 @@ const nuxtSettings = async () => {
         return route[Object.keys(route)[0]];
       }),
       // disable crawler since we're manualy generating routes
-      // crawler: false,
-      fallback: '404.html'
+      crawler: true,
+      fallback: true,
     },
 
     // Default Transition

@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     content() {
-      return PrismicDOM.RichText.asHtml(
+      return this.$prismic.asHtml(
         this.richtext,
         LinkResolver
         // HtmlSerializer

@@ -1,17 +1,15 @@
 <template>
   <div class="flex-grow pt-32 w-full overflow-hidden relative">
-    <container class="py-12">
+    <container class="py-12 text-black">
       <h1
         class="leading-none font-light rich-text text-2xl sm:text-3xl md:text-4xl"
       >
         {{ heading }}
       </h1>
       <div class="border-b-2 my-6 border-black" />
-      <prismic-rich-text
-        v-if="lead !== null"
-        class="leading-tight font-light rich-text text-lg sm:text-xl md:text-2xl"
-        :richtext="lead"
-      />
+      <div class="leading-tight font-light rich-text text-base sm:text-lg">
+        {{ lead }}
+      </div>
     </container>
     <div class="text-black py-6">
       <container>
@@ -56,8 +54,9 @@
 export default {
   async asyncData({ $prismic, error, params }) {
     try {
-      const uid = params.id;
+      const uid = params.pathMatch;
       const res = await $prismic.api.getByUID('page', uid);
+
       const document = res.data;
       delete res.data;
       return {
@@ -69,7 +68,7 @@ export default {
           description: document.meta_description,
           image: document.meta_image
         },
-        lead: document.descriptor,
+        lead: document.summary,
         heading: document.heading,
         areas: document.body.map(slice => {
           return {
@@ -82,6 +81,7 @@ export default {
         })
       };
     } catch (e) {
+      console.log(e);
       error({ statusCode: 404, message: 'Page not found' });
     }
   },
