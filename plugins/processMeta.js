@@ -10,62 +10,65 @@ const buildURL = (url, params) => {
 };
 
 const processMetaImage = url => {
-  const imgUrl = url || globalSettings.default_meta_image.url;
-  // set default params
-  const defaultParams = {
-    auto: 'format,compress',
-    fit: 'crop',
-    crop: 'faces,edges,entropy'
-  };
+  const imgUrl = url || globalSettings.default_meta_image?.url;
+  if (imgUrl) {
+    // set default params
+    const defaultParams = {
+      auto: 'format,compress',
+      fit: 'crop',
+      crop: 'faces,edges,entropy'
+    };
 
-  let urlParams;
+    let urlParams;
 
-  // get just image's existing url params
-  imgUrl
-    .split('?')[1]
-    .split('&')
-    .forEach(string => {
-      const splitString = string.split('=');
-      urlParams = {
-        ...urlParams,
-        ...{ [splitString[0]]: splitString[1] }
-      };
+    // get just image's existing url params
+    imgUrl
+      .split('?')[1]
+      .split('&')
+      .forEach(string => {
+        const splitString = string.split('=');
+        urlParams = {
+          ...urlParams,
+          ...{ [splitString[0]]: splitString[1] }
+        };
+      });
+
+    // setup params
+    let params = { ...defaultParams };
+
+    // add rectangle crop from prismic
+    if (urlParams.rect) {
+      params = { ...params, ...{ rect: urlParams.rect } };
+    }
+
+    // add duotone
+    params = {
+      ...params,
+      ...{
+        auto: 'format,compress,enhance'
+        // con: '25',
+        // exp: '-3',
+        // high: '-25',
+        // shadow: '5',
+        // // slightly lighter duotone
+        // duotone: 'EC1F27,F2A5AB'
+      }
+    };
+
+    // get just the image part of the url
+    const parsedUrl = imgUrl.split('?')[0];
+
+    // create srcs
+    const imgixUrl = buildURL(parsedUrl, {
+      ...params,
+      w: 1200,
+      h: 900
     });
 
-  // setup params
-  let params = { ...defaultParams };
-
-  // add rectangle crop from prismic
-  if (urlParams.rect) {
-    params = { ...params, ...{ rect: urlParams.rect } };
+    // return the srcset object
+    return imgixUrl;
   }
-
-  // add duotone
-  params = {
-    ...params,
-    ...{
-      auto: 'format,compress,enhance'
-      // con: '25',
-      // exp: '-3',
-      // high: '-25',
-      // shadow: '5',
-      // // slightly lighter duotone
-      // duotone: 'EC1F27,F2A5AB'
-    }
-  };
-
-  // get just the image part of the url
-  const parsedUrl = imgUrl.split('?')[0];
-
-  // create srcs
-  const imgixUrl = buildURL(parsedUrl, {
-    ...params,
-    w: 1200,
-    h: 900
-  });
-
-  // return the srcset object
-  return imgixUrl;
+  return null;
 };
 
 Vue.prototype.$processMeta = (_title, meta, _path = '/') => {
@@ -79,7 +82,7 @@ Vue.prototype.$processMeta = (_title, meta, _path = '/') => {
     title,
     meta: [
       // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-      { hid: 'title', name: 'title', content: meta.title },
+      { hid: 'title', name: 'title', content: title },
       {
         hid: 'description',
         name: 'description',
