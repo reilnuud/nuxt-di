@@ -112,6 +112,7 @@ const nuxtSettings = async () => {
 
     // plugins
     plugins: [
+      '@/plugins/processMeta.js',
       { src: '@/plugins/global.js' },
       { src: '@/plugins/is-dark.js' },
       { src: '@/plugins/carousel.js', ssr: false }

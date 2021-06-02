@@ -73,7 +73,13 @@ export default {
             label: message.label,
             copy: message.descriptor
           };
-        })
+        }),
+        title: document.title,
+        meta: {
+          title: document.meta_title,
+          description: document.meta_description,
+          image: document.meta_image
+        }
       };
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' });
@@ -81,6 +87,9 @@ export default {
   },
   data() {
     return {};
+  },
+  head() {
+    return this.$processMeta(this.title, this.meta, this.$route.path);
   },
   mounted() {
     this.$store.commit('setTheme', { header: 'dark', footer: 'light' });

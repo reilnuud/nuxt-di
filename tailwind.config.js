@@ -78,19 +78,8 @@ const caclcColors = colors => {
 const colors = caclcColors(baseColors);
 
 module.exports = {
-  purge:
-    process.env.NODE_ENV === 'development'
-      ? false
-      : {
-          content: [
-            './components/**/*.vue',
-            './pages/**/*.vue',
-            './layouts/**/*.vue'
-          ],
-          options: {
-            safelist: ['object-cover', 'object-contain']
-          }
-        },
+  mode: 'jit',
+  purge: ['./components/**/*.vue', './pages/**/*.vue', './layouts/**/*.vue'],
   theme: {
     screens: {
       sm: '650px',

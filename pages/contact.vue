@@ -79,7 +79,13 @@ export default {
         ...res,
         document,
         heading: document.heading,
-        description: document.description
+        description: document.description,
+        title: document.title,
+        meta: {
+          title: document.meta_title,
+          description: document.meta_description,
+          image: document.meta_image
+        }
       };
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' });
@@ -120,6 +126,9 @@ export default {
           // eslint-disable-next-line no-console
           console.log(error);
         });
+    },
+    head() {
+      return this.$processMeta(this.title, this.meta, this.$route.path);
     }
   }
 };

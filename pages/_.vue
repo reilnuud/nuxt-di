@@ -34,9 +34,11 @@ export default {
         documentId: result.id,
         title: document.title,
         slices: document.body,
-        metaTitle: document.meta_title,
-        metaDescription: document.meta_description,
-        metaImage: document.meta_image
+        meta: {
+          title: document.meta_title,
+          description: document.meta_description,
+          image: document.meta_image
+        }
       };
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' });
@@ -49,55 +51,11 @@ export default {
       textFieldtest: ''
     };
   },
+  head() {
+    return this.$processMeta(this.title, this.meta, this.$route.path);
+  },
   computed: {},
   mounted() {},
-  methods: {},
-  head() {
-    return {
-      title: this.title,
-      meta: [
-        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-        { hid: 'title', name: 'title', content: this.metaTitle },
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.metaDescription
-        },
-        { hid: 'og:title', name: 'og:title', content: this.metaTitle },
-
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          content: this.metaDescription
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          content: this.metaImage.url || null
-        },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: this.metaTitle
-        },
-
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: this.metaDescription
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: this.metaImage.url || null
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image'
-        }
-      ]
-    };
-  }
+  methods: {}
 };
 </script>

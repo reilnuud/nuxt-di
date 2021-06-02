@@ -62,6 +62,12 @@ export default {
       return {
         ...res,
         document,
+        title: document.title,
+        meta: {
+          title: document.meta_title,
+          description: document.meta_description,
+          image: document.meta_image
+        },
         lead: document.descriptor,
         heading: document.heading,
         areas: document.body.map(slice => {
@@ -80,6 +86,9 @@ export default {
   },
   data() {
     return {};
+  },
+  head() {
+    return this.$processMeta(this.title, this.meta, this.$route.path);
   },
   mounted() {
     this.$store.commit('setTheme', { header: 'light', footer: 'light' });
