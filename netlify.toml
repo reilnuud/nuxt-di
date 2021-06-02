@@ -31,4 +31,4 @@ package = "@netlify/plugin-sitemap"
   ]
 
 [build.environment]
-  NODE_VERSION = "v12.13.1"
+  NODE_VERSION = "v14.17.0"
