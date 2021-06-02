@@ -58,7 +58,6 @@ export default {
         title: document.title1,
         image: document.image,
         details: document.body.map(item => {
-          console.log(item);
           return {
             heading: item.primary.section_heading,
             copy: item.primary.copy

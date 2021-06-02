@@ -141,7 +141,7 @@ const nuxtSettings = async () => {
         return route[Object.keys(route)[0]];
       }),
       // disable crawler since we're manualy generating routes
-      crawler: false,
+      // crawler: false,
       fallback: '404.html'
     },
 
@@ -197,7 +197,7 @@ const nuxtSettings = async () => {
               // https://github.com/tailwindlabs/tailwindcss/discussions/2462
             }
           }),
-          // require('postcss-nested')(),
+          require('postcss-nested')(),
           require('postcss-preset-env')({
             features: {
               'focus-within-pseudo-class': false // Attempt at fixing build error
