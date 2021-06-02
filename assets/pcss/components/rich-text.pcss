@@ -1,82 +1,98 @@
-@layer utilities {
-  .rich-text {
-    > * {
-      @apply mb-6;
-
-      &:last-child {
-        @apply mb-0;
-      }
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      @apply leading-none;
-    }
-
-    h1 {
-      @apply text-5xl my-6;
-    }
-
-    h2 {
-      @apply text-4xl my-6;
-    }
-
-    h3 {
-      @apply text-2xl my-6;
-    }
-
-    h4 {
-      @apply text-lg font-bold text-primary my-6;
-    }
-
-    h2 + he {
-      @apply mt-2;
-    }
-
-    /* p {
-    @apply;
-  } */
-
-    ul {
-      @apply lg:grid lg:grid-cols-2 lg:gap-3;
-    }
-
-    ol {
-    }
-
-    ul,
-    ol {
-      @apply leading-tight;
-
-      li {
-        @apply mb-3 pl-6 relative;
-
-        &:before {
-          @apply absolute w-6 inline-flex justify-center items-center left-0 top-0 text-purple;
-          content: '\2022';
-          line-height: inherit;
-        }
-      }
-    }
-
-    /* a {
-    @apply rel;
-  } */
-  }
-}
-
-/* inverse styles */
-.rich-text-inverse {
-  @apply rich-text;
-
+.rich-text {
   > * {
     @apply mb-6;
 
     &:last-child {
       @apply mb-0;
     }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply leading-none;
+  }
+
+  h1 {
+    @apply text-5xl my-6;
+  }
+
+  h2 {
+    @apply text-4xl my-6;
+  }
+
+  h3 {
+    @apply text-2xl my-6;
+  }
+
+  h4 {
+    @apply text-lg font-bold text-primary my-6;
+  }
+
+  h2 + he {
+    @apply mt-2;
+  }
+
+  /* p {
+    @apply;
+  } */
+
+  ul {
+    @apply lg:grid lg:grid-cols-2 lg:gap-3;
+  }
+
+  ol {
+  }
+
+  ul,
+  ol {
+    @apply leading-tight;
+
+    li {
+      @apply mb-3 pl-6 relative;
+
+      &:before {
+        @apply absolute w-6 inline-flex justify-center items-center left-0 top-0 text-purple;
+        content: '\2022';
+        line-height: inherit;
+      }
+    }
+  }
+
+  /* a {
+    @apply rel;
+  } */
+}
+
+/* inverse styles */
+.rich-text-inverse {
+  > * {
+    @apply mb-6;
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+
+  h1 {
+    @apply text-5xl my-6;
+  }
+
+  h2 {
+    @apply text-4xl my-6;
+  }
+
+  h3 {
+    @apply text-2xl my-6;
+  }
+
+  h4 {
+    @apply text-lg font-bold text-primary my-6;
+  }
+
+  h2 + he {
+    @apply mt-2;
   }
 
   h1,
@@ -91,6 +107,7 @@
   }
 
   ul {
+    @apply lg:grid lg:grid-cols-2 lg:gap-3;
   }
 
   ol {
