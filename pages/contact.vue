@@ -17,16 +17,28 @@
             />
           </div>
           <div class="w-full px-6 md:w-1/2">
-            <form class="mt-6 md:mt-0">
+            <!-- todo thank you page -->
+            <div
+              v-if="error"
+              class="italic border border mt-6 -mb-3 p-3 border-purple"
+            >
+              {{ error }}
+            </div>
+            <form
+              v-if="!submitted"
+              ref="form"
+              class="mt-6 md:mt-0"
+              @submit="handleSubmit"
+            >
               <div class="-mx-2 flex flex-wrap">
                 <div class="px-2 w-full mb-1">Name</div>
                 <div class="px-2 w-full sm:w-1/2 flex flex-col mb-4">
                   <input class="order-1 px-2 py-1" />
-                  <label class="order-2 mt-1 text-sm ">First</label>
+                  <label class="order-2 mt-1 text-xs ">First</label>
                 </div>
                 <div class="px-2 w-full sm:w-1/2 flex flex-col mb-4">
                   <input class="order-1 px-2 py-1" />
-                  <label class="order-2 mt-1 text-sm ">Last</label>
+                  <label class="order-2 mt-1 text-xs ">Last</label>
                 </div>
               </div>
               <div class="flex flex-col md:-mt-2 mb-4">
@@ -41,6 +53,9 @@
                 <btn color="black" type="submit">Send</btn>
               </div>
             </form>
+            <div v-else class="mt-6">
+              Thank you for contacting us. We will get back to you shorly.
+            </div>
           </div>
         </div>
         <!-- stuff -->
@@ -68,10 +83,36 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      error: false,
+      submitted: false
+    };
   },
   mounted() {
     this.$store.commit('setTheme', { header: 'dark', footer: 'light' });
+  },
+  methods: {
+    handleSubmit(e) {
+      const _this = this;
+      e.preventDefault();
+      const myForm = this.$refs.form;
+      const formData = new FormData(myForm);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+        .then(() => {
+          _this.submitted = true;
+          _this.error = false;
+        })
+        .catch(error => {
+          _this.error =
+            'There was an error with your submission. Please make sure all fields are completed and try again.';
+          // eslint-disable-next-line no-console
+          console.log(error);
+        });
+    }
   }
 };
 </script>
