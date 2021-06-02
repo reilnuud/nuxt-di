@@ -62,7 +62,7 @@ export const getPrismicRoutes = new Promise((resolve, reject) => {
         // eslint-disable-next-line no-console
         // check if type is page
         if (page.type === 'page') {
-          const pageRoute = getPageRoute(page, query.results);
+          const pageRoute = `/${page.uid}`; // getPageRoute(page, query.results);
           routes.push({ [page.uid]: pageRoute });
         }
         if (page.type === 'case') {
