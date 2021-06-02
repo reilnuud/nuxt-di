@@ -16,7 +16,10 @@
               :richtext="description"
             />
           </div>
-          <div class="w-full px-6 md:w-1/2">
+          <div
+            class="w-full px-6 md:w-1/2"
+            :class="{ 'pointer-events-none animate-pulse': submitting }"
+          >
             <!-- todo thank you page -->
             <div
               v-if="error"
@@ -85,7 +88,8 @@ export default {
   data() {
     return {
       error: false,
-      submitted: false
+      submitted: false,
+      submitting: false
     };
   },
   mounted() {
@@ -93,8 +97,9 @@ export default {
   },
   methods: {
     handleSubmit(e) {
-      const _this = this;
       e.preventDefault();
+      const _this = this;
+      this.submitting = true;
       const myForm = this.$refs.form;
       const formData = new FormData(myForm);
       fetch('/', {
@@ -105,8 +110,11 @@ export default {
         .then(() => {
           _this.submitted = true;
           _this.error = false;
+          this.submitting = false;
         })
         .catch(error => {
+          this.submitting = true;
+
           _this.error =
             'There was an error with your submission. Please make sure all fields are completed and try again.';
           // eslint-disable-next-line no-console
