@@ -10,7 +10,7 @@
         <ul class="-mx-6 md:-mx-8 lg:-mx-12 flex flex-wrap">
           <li
             v-for="member in members"
-            :key="member.uid"
+            :key="member.uid + member.image.url"
             class="w-1/2 px-6 md:px-8 lg:px-12 my-6"
           >
             <app-link
