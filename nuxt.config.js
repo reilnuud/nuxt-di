@@ -186,25 +186,12 @@ const nuxtSettings = async () => {
 
       // postcss config, replaces ./postcss.config.js
       postcss: {
-        parser: 'postcss-scss',
         plugins: [
           require('postcss-import')(),
-          require('postcss-url')(),
+          require('tailwindcss/nesting')(),
           require('tailwindcss')(),
           require('postcss-normalize')(),
-          require('precss')({
-            features: {
-              'focus-within-pseudo-class': false // Attempt at fixing build error
-              // https://github.com/tailwindlabs/tailwindcss/discussions/2462
-            }
-          }),
-          require('postcss-nested')(),
-          require('postcss-preset-env')({
-            features: {
-              'focus-within-pseudo-class': false // Attempt at fixing build error
-              // https://github.com/tailwindlabs/tailwindcss/discussions/2462
-            }
-          }),
+          require('postcss-preset-env')(),
           require('cssnano')(),
           require('postcss-hexrgba')()
         ]

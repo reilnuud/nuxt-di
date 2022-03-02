@@ -79,7 +79,7 @@ const colors = caclcColors(baseColors);
 
 module.exports = {
   mode: 'jit',
-  purge: ['./components/**/*.vue', './pages/**/*.vue', './layouts/**/*.vue'],
+  content: ['./components/**/*.vue', './pages/**/*.vue', './layouts/**/*.vue'],
   theme: {
     screens: {
       sm: '650px',
