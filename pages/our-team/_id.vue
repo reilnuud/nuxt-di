@@ -12,10 +12,10 @@
             <div class="-mr-2 border-b-white border-b mt-3" />
           </div>
           <div class="mt-3 uppercase">{{ title }}</div>
-          <div v-if="email" class="mt-4 text-sm">
+          <div v-if="email" class="mt-4 text-base">
             <a :href="`mailto:${email}`">{{ email }}</a>
           </div>
-          <div v-if="phone" class="mt-3 text-sm">
+          <div v-if="phone" class="mt-2 text-base">
             <a :href="`tel:+1${phone.replace(/[^0-9\.]/g, '')}`">
               {{ phone.replace(/-/g, '.').replace(/[^0-9\.]/g, '') }}
             </a>
