@@ -12,6 +12,14 @@
             <div class="-mr-2 border-b-white border-b mt-3" />
           </div>
           <div class="mt-3 uppercase">{{ title }}</div>
+          <div v-if="email" class="mt-4 text-sm">
+            <a :href="`mailto:${email}`">{{ email }}</a>
+          </div>
+          <div v-if="phone" class="mt-3 text-sm">
+            <a :href="`tel:+1${phone.replace(/[^0-9\.]/g, '')}`">
+              {{ phone.replace(/-/g, '.').replace(/[^0-9\.]/g, '') }}
+            </a>
+          </div>
         </div>
       </div>
     </container>
@@ -57,6 +65,8 @@ export default {
         name: document.title,
         title: document.title1,
         image: document.image,
+        email: document.email,
+        phone: document.phone,
         details: document.body.map(item => {
           return {
             heading: item.primary.section_heading,

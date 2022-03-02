@@ -123,6 +123,7 @@ const nuxtSettings = async () => {
 
     prismic: {
       endpoint: `https://${process.env.PRISMIC_REPO}.cdn.prismic.io/api/v2`,
+      preview: '/preview',
       linkResolver: '@/plugins/link-resolver',
       htmlSerializer: '@/plugins/html-serializer'
     },
@@ -142,7 +143,7 @@ const nuxtSettings = async () => {
       }),
       // disable crawler since we're manualy generating routes
       crawler: true,
-      fallback: true,
+      fallback: true
     },
 
     // Default Transition

@@ -13,7 +13,7 @@ const PrismicLink = link => {
     const routes = Object.assign({}, ...process.env.SITE_ROUTES);
 
     // handle internal link
-    if (link.link_type && link.link_type === 'Document') {
+    if (link?.uid) {
       // return route or 404 if none
       return routes[link.uid] || '/404';
     }
