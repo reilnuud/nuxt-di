@@ -69,6 +69,10 @@ export const getPrismicRoutes = new Promise((resolve, reject) => {
           const pageRoute = `/practice/${page.uid}/`;
           routes.push({ [page.uid]: pageRoute });
         }
+        if (page.type === 'article') {
+          const pageRoute = `/insights/${page.uid}/`;
+          routes.push({ [page.uid]: pageRoute });
+        }
         if (page.type === 'team_member') {
           const pageRoute = `/our-team/${page.uid}/`;
           routes.push({ [page.uid]: pageRoute });
@@ -77,6 +81,7 @@ export const getPrismicRoutes = new Promise((resolve, reject) => {
     routes.push({ preview: '/preview' });
     routes.push({ home: '/' });
     routes.push({ about: '/about/' });
+    routes.push({ insights: '/insights/' });
     routes.push({ practice: '/practice/' });
     routes.push({ 'our-team': '/our-team/' });
     routes.push({ contact: '/contact/' });

@@ -23,7 +23,7 @@
           </div>
           <container
             class="flex flex-col justify-end flex-grow relative z-20"
-            style="font-size:5vw;"
+            style="font-size: 5vw"
             data-swiper-parallax="-250"
           >
             <h2
@@ -58,20 +58,20 @@ export default {
           return {
             uid: slide.uid,
             heading: slide.heading,
-            image: slide.image
+            image: slide.image,
           };
         }),
         title: document.title,
         meta: {
           title: document.meta_title,
           description: document.meta_description,
-          image: document.meta_image
-        }
+          image: document.meta_image,
+        },
       };
     } catch (e) {
       // error({ statusCode: 404, message: 'Page not found' })
       return {
-        install: true
+        install: true,
       };
     }
   },
@@ -81,13 +81,13 @@ export default {
       swiperOptions: {
         fadeEffect: { crossFade: true },
         autoplay: {
-          delay: 2500,
-          disableOnInteraction: false
+          delay: 5000,
+          disableOnInteraction: false,
         },
-        speed: 500,
+        speed: 666,
         slidersPerView: 1,
-        effect: 'fade'
-      }
+        effect: 'fade',
+      },
     };
   },
   head() {
@@ -98,7 +98,7 @@ export default {
     setTimeout(() => {
       gsap.to(this.$refs.logomark, { y: 0, opacity: 1, duration: 0.5 });
     }, 500);
-  }
+  },
 };
 </script>
 

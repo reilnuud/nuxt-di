@@ -29,7 +29,7 @@ const nuxtSettings = async () => {
       clientPrefetch: true,
       clientUseUrl: false, // this is a bit of an odd one, but using URL should eg be ok for modern mode already
       componentAliases: true,
-      componentClientOnly: true
+      componentClientOnly: true,
     },
 
     // container name __ + value
@@ -42,7 +42,7 @@ const nuxtSettings = async () => {
       lang: 'en',
       theme_color: '#41204d',
       display: 'standalone',
-      background_color: '#41204d'
+      background_color: '#41204d',
     },
 
     // // PWA Options
@@ -57,7 +57,7 @@ const nuxtSettings = async () => {
       SITE_NAME: process.env.SITE_NAME,
       SITE_URL: process.env.SITE_URL,
       SITE_ROUTES: dynamicRoutes,
-      SITE_SETTINGS: globalSettings
+      SITE_SETTINGS: globalSettings,
     },
 
     /*
@@ -68,7 +68,7 @@ const nuxtSettings = async () => {
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: pkg.description }
+        { hid: 'description', name: 'description', content: pkg.description },
       ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
@@ -77,7 +77,7 @@ const nuxtSettings = async () => {
           as: 'style',
           href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
           crossorigin: 'anonymous',
-          onLoad: "this.rel='stylesheet'"
+          onLoad: "this.rel='stylesheet'",
         },
         // {
         //   rel: 'preload',
@@ -88,21 +88,21 @@ const nuxtSettings = async () => {
         // },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/icon?family=Material+Icons'
+          href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
         },
         {
           rel: 'stylesheet',
-          href: process.env.FONT_CSS
-        }
+          href: process.env.FONT_CSS,
+        },
       ],
       // remove to allow preloading
       __dangerouslyDisableSanitizers: ['script'],
       htmlAttrs: {
-        class: 'h-full w-full relative'
+        class: 'h-full w-full relative',
       },
       bodyAttrs: {
-        class: 'h-full w-full relative bg-white'
-      }
+        class: 'h-full w-full relative bg-white',
+      },
     },
 
     // disable loading bar
@@ -115,23 +115,23 @@ const nuxtSettings = async () => {
       '@/plugins/processMeta.js',
       { src: '@/plugins/global.js' },
       { src: '@/plugins/is-dark.js' },
-      { src: '@/plugins/carousel.js', ssr: false }
+      { src: '@/plugins/carousel.js', ssr: false },
     ],
 
     // modules
-    modules: ['@nuxtjs/axios', '@nuxtjs/pwa', '@nuxtjs/prismic'],
+    modules: ['@nuxtjs/pwa', '@nuxtjs/prismic'],
 
     prismic: {
       endpoint: `https://${process.env.PRISMIC_REPO}.cdn.prismic.io/api/v2`,
       preview: '/preview',
       linkResolver: '@/plugins/link-resolver',
-      htmlSerializer: '@/plugins/html-serializer'
+      htmlSerializer: '@/plugins/html-serializer',
     },
 
     // Route Settings
     // server
     router: {
-      routeNameSplitter: '/'
+      routeNameSplitter: '/',
       // this breaks the trailing slash url when it should also work
       // trailingSlash: false
     },
@@ -143,22 +143,19 @@ const nuxtSettings = async () => {
       }),
       // disable crawler since we're manualy generating routes
       crawler: true,
-      fallback: true
+      fallback: true,
     },
 
     // Default Transition
     pageTransition: {
       name: 'transition--fade',
-      mode: 'out-in'
+      mode: 'out-in',
     },
-
-    // axios
-    axios: {},
 
     // server settings
     server: {
       port: 3000, // default: 3000
-      host: '0.0.0.0' // default: localhost
+      host: '0.0.0.0', // default: localhost
       // https: {
       //   key: fs.readFileSync(path.resolve(__dirname, '.ssl/localhost.key')),
       //   cert: fs.readFileSync(path.resolve(__dirname, '.ssl/localhost.pem'))
@@ -178,7 +175,7 @@ const nuxtSettings = async () => {
       // },
 
       babel: {
-        plugins: ['@babel/plugin-proposal-optional-chaining']
+        plugins: ['@babel/plugin-proposal-optional-chaining'],
       },
 
       // set to false to inline css
@@ -193,10 +190,10 @@ const nuxtSettings = async () => {
           require('postcss-normalize')(),
           require('postcss-preset-env')(),
           require('cssnano')(),
-          require('postcss-hexrgba')()
-        ]
-      }
-    }
+          require('postcss-hexrgba')(),
+        ],
+      },
+    },
   };
 };
 
