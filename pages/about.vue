@@ -26,13 +26,13 @@
             :key="message.uid"
             class="flex flex-wrap max-w-4xl xl:max-w-5xl sm:flex-nowrap -mx-3 py-8"
             :class="{
-              'border-b border-purple': i !== core_messaging.length - 1
+              'border-b border-purple': i !== core_messaging.length - 1,
             }"
           >
             <div
               class="w-full mb-4 font-bold text-lg sm:mb-0 leading-tight pt-1 sm:w-1/4 md:w-1/3 flex-shrink-0 px-3"
             >
-              <div style="max-width:300px;">
+              <div style="max-width: 300px">
                 {{ message.label }}
               </div>
             </div>
@@ -65,21 +65,21 @@ export default {
         supporting_copy: document.supporting_copy,
         button: {
           url: document.button_link,
-          text: document.button_text
+          text: document.button_text,
         },
         core_messaging: document.core_messaging.map(message => {
           return {
             uid: message.uid,
             label: message.label,
-            copy: message.descriptor
+            copy: message.descriptor,
           };
         }),
         title: document.title,
         meta: {
           title: document.meta_title,
           description: document.meta_description,
-          image: document.meta_image
-        }
+          image: document.meta_image,
+        },
       };
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' });
@@ -89,10 +89,10 @@ export default {
     return {};
   },
   head() {
-    return this.$processMeta(this.title, this.meta, this.$route.path);
+    // return this.$processMeta(this.title, this.meta, this.$route.path);
   },
   mounted() {
     this.$store.commit('setTheme', { header: 'dark', footer: 'light' });
-  }
+  },
 };
 </script>

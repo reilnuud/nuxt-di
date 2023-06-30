@@ -42,7 +42,7 @@
                     required
                     class="order-1 px-2 py-1"
                   />
-                  <label class="order-2 mt-1 text-xs ">First</label>
+                  <label class="order-2 mt-1 text-xs">First</label>
                 </div>
                 <div class="px-2 w-full sm:w-1/2 flex flex-col mb-4">
                   <input
@@ -51,7 +51,7 @@
                     required
                     class="order-1 px-2 py-1"
                   />
-                  <label class="order-2 mt-1 text-xs ">Last</label>
+                  <label class="order-2 mt-1 text-xs">Last</label>
                 </div>
               </div>
               <div class="flex flex-col md:-mt-2 mb-4">
@@ -68,7 +68,7 @@
                   required
                   name="Message"
                   class="order-2 px-2 py-1"
-                  style="min-height:120px;"
+                  style="min-height: 120px"
                 />
                 <label class="order-1 mb-1">Message</label>
               </div>
@@ -104,8 +104,8 @@ export default {
         meta: {
           title: document.meta_title,
           description: document.meta_description,
-          image: document.meta_image
-        }
+          image: document.meta_image,
+        },
       };
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' });
@@ -115,7 +115,7 @@ export default {
     return {
       error: false,
       submitted: false,
-      submitting: false
+      submitting: false,
     };
   },
   mounted() {
@@ -138,7 +138,7 @@ export default {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({ 'form-name': 'contact', ...formData })
+        body: this.encode({ 'form-name': 'contact', ...formData }),
       })
         .then(() => {
           _this.submitted = true;
@@ -155,8 +155,8 @@ export default {
         });
     },
     head() {
-      return this.$processMeta(this.title, this.meta, this.$route.path);
-    }
-  }
+      // return this.$processMeta(this.title, this.meta, this.$route.path);
+    },
+  },
 };
 </script>

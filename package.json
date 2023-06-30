@@ -7,13 +7,15 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "yarn run lint",
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "start": "nuxi preview",
+    "generate": "nuxi generate"
   },
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.16.7",
+    "@nuxt/bridge": "^0.10.1",
+    "@nuxt/bridge-edge": "^3.0.0-28135555.f3f838f",
     "@nuxtjs/prismic": "^1.4.2",
     "@nuxtjs/pwa": "^3.3.5",
     "@prismicio/client": "^6.0.0",
@@ -28,7 +30,7 @@
     "imgix-core-js": "^2.3.2",
     "mapbox-gl": "^2.7.0",
     "moment": "^2.29.1",
-    "nuxt": "^2.15.8",
+    "nuxt": "^2.16.0",
     "plyr": "^3.6.12",
     "postcss": "^8.1.10",
     "postcss-easy-import": "^4.0.0",

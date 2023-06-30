@@ -71,7 +71,7 @@ export default {
     return {};
   },
   head() {
-    return this.$processMeta(this.title, this.meta, this.$route.path);
+    // return this.$processMeta(this.title, this.meta, this.$route.path);
   },
   mounted() {
     this.$store.commit('setTheme', { header: 'dark', footer: 'dark' });

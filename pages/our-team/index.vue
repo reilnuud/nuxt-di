@@ -17,7 +17,7 @@
               :to="`/our-team/${member.slug}`"
               class="flex flex-col items-start w-full group"
             >
-              <div class="w-full relative" style="padding-bottom:100%;">
+              <div class="w-full relative" style="padding-bottom: 100%">
                 <imgix
                   v-if="member.image"
                   :image="member.image"
@@ -48,8 +48,8 @@ export default {
         fetchLinks: [
           'team_member.title',
           'team_member.image',
-          'team_member.title1'
-        ]
+          'team_member.title1',
+        ],
       });
       const document = res.data;
       delete res.data;
@@ -62,15 +62,15 @@ export default {
             slug: tm.team_member.uid,
             name: tm.team_member.data.title,
             title: tm.team_member.data.title1,
-            image: tm.team_member.data.image
+            image: tm.team_member.data.image,
           };
         }),
         title: document.title,
         meta: {
           title: document.meta_title,
           description: document.meta_description,
-          image: document.meta_image
-        }
+          image: document.meta_image,
+        },
       };
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' });
@@ -80,10 +80,10 @@ export default {
     return {};
   },
   head() {
-    return this.$processMeta(this.title, this.meta, this.$route.path);
+    // return this.$processMeta(this.title, this.meta, this.$route.path);
   },
   mounted() {
     this.$store.commit('setTheme', { header: 'dark', footer: 'dark' });
-  }
+  },
 };
 </script>

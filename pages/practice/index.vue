@@ -19,13 +19,13 @@
             :key="area.uid"
             class="flex flex-wrap sm:flex-nowrap -mx-3 py-8"
             :class="{
-              'border-b border-black': i !== areas.length - 1
+              'border-b border-black': i !== areas.length - 1,
             }"
           >
             <div
               class="w-full mb-4 font-bold text-lg sm:mb-0 leading-tight pt-1 sm:w-1/4 md:w-1/3 flex-shrink-0 px-3"
             >
-              <div style="max-width:300px;">
+              <div style="max-width: 300px">
                 {{ area.heading }}
               </div>
             </div>
@@ -70,15 +70,15 @@ export default {
             descriptor: slice.primary.description,
             cases: slice.items.map(item => {
               return { text: item.case_title, url: item.case_link.url };
-            })
+            }),
           };
         }),
         title: document.title,
         meta: {
           title: document.meta_title,
           description: document.meta_description,
-          image: document.meta_image
-        }
+          image: document.meta_image,
+        },
       };
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' });
@@ -88,10 +88,10 @@ export default {
     return {};
   },
   head() {
-    return this.$processMeta(this.title, this.meta, this.$route.path);
+    // return this.$processMeta(this.title, this.meta, this.$route.path);
   },
   mounted() {
     this.$store.commit('setTheme', { header: 'light', footer: 'light' });
-  }
+  },
 };
 </script>

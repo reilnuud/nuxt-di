@@ -1,3 +1,5 @@
+import { defineNuxtConfig } from '@nuxt/bridge';
+
 import 'dotenv/config';
 // import axios from 'axios'
 import path from 'path';
@@ -112,7 +114,7 @@ const nuxtSettings = async () => {
 
     // plugins
     plugins: [
-      '@/plugins/processMeta.js',
+      // '@/plugins/processMeta.js',
       { src: '@/plugins/global.js' },
       { src: '@/plugins/is-dark.js' },
       { src: '@/plugins/carousel.js', ssr: false },
@@ -197,4 +199,4 @@ const nuxtSettings = async () => {
   };
 };
 
-export default nuxtSettings;
+export default defineNuxtConfig(nuxtSettings());

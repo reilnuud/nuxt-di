@@ -21,7 +21,7 @@
             :key="area.uid"
             class="flex flex-wrap sm:flex-nowrap -mx-3 py-8"
             :class="{
-              'border-b border-black': i !== areas.length - 1
+              'border-b border-black': i !== areas.length - 1,
             }"
           >
             <div
@@ -66,7 +66,7 @@ export default {
         meta: {
           title: document.meta_title,
           description: document.meta_description,
-          image: document.meta_image
+          image: document.meta_image,
         },
         lead: document.descriptor,
         heading: document.heading,
@@ -76,9 +76,9 @@ export default {
             descriptor: slice.primary.description,
             cases: slice.items.map(item => {
               return { text: item.case_title, url: item.case_link.url };
-            })
+            }),
           };
-        })
+        }),
       };
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' });
@@ -88,10 +88,10 @@ export default {
     return {};
   },
   head() {
-    return this.$processMeta(this.title, this.meta, this.$route.path);
+    // return this.$processMeta(this.title, this.meta, this.$route.path);
   },
   mounted() {
     this.$store.commit('setTheme', { header: 'light', footer: 'light' });
-  }
+  },
 };
 </script>
