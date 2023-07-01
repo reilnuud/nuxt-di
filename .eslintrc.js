@@ -1,19 +1,29 @@
 module.exports = {
-  root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
+    es6: true,
   },
-  parserOptions: {
-    parser: 'babel-eslint'
+  settings: {
+    "import/core-modules": ["vuetify", "vuetify/es5/util/colors"],
+    "import/resolver": {
+      alias: {
+        map: [["@", "."]],
+        extensions: [".vue", ".js"],
+      },
+    },
   },
   extends: [
-    '@nuxtjs',
-    'plugin:nuxt/recommended',
-    'plugin:prettier/recommended',
-    'prettier'
+    "plugin:vue/essential",
+    "@vue/airbnb",
+    "plugin:prettier/recommended",
   ],
-  plugins: ['prettier'],
-  // add your custom rules here
-  rules: {}
+  plugins: ["prettier"],
+  rules: {
+    "arrow-parens": 0,
+    "no-extra-parens": "error",
+    "prettier/prettier": "error",
+    "vue/multi-word-component-names": 0,
+    quotes: [2, "double", { avoidEscape: true }],
+  },
 };
