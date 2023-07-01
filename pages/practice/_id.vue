@@ -34,7 +34,7 @@
                 class="leading-normal rich-text"
                 :richtext="area.descriptor"
               />
-              <ul class="py-2 mt-8">
+              <!-- <ul class="py-2 mt-8">
                 <li
                   v-for="example in area.cases"
                   :key="example.uid"
@@ -42,7 +42,7 @@
                 >
                   <app-link :to="example.text">{{ example.text }}</app-link>
                 </li>
-              </ul>
+              </ul> -->
             </div>
           </li>
         </ul>
@@ -74,9 +74,9 @@ export default {
           return {
             heading: slice.primary.heading1,
             descriptor: slice.primary.description,
-            cases: slice.items.map(item => {
-              return { text: item.case_title, url: item.case_link.url };
-            })
+            // cases: slice.items.map(item => {
+            //   return { text: item.case_title, url: item.case_link.url };
+            // })
           };
         })
       };
