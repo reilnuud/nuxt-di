@@ -31,7 +31,7 @@
               <div style="max-width:300px;">
                 {{ area.heading }}
               </div>
-              <ul class="grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-4" v-if="area.images && area.images.length">
+              <ul class="grid grid-cols-1 pr-3 gap-3 mt-4" v-if="area.images && area.images.length">
                 <li v-for="image in area.images">
                   <imgix v-if="image" :image="image" />
                 </li>
