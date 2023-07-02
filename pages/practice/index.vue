@@ -33,7 +33,9 @@
               </div>
               <ul class="grid grid-cols-1 pr-3 gap-3 mt-4" v-if="area.images && area.images.length">
                 <li v-for="image in area.images">
+                  <div class="max-w-64">
                   <imgix v-if="image" :image="image" />
+                  </div>
                 </li>
               </ul>
             </div>
