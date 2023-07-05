@@ -5,7 +5,7 @@ const baseColors = {
   white: '#f3f2f2',
   purple: '#41204d',
   gray: '#e2e2d6',
-  black: '#333333'
+  black: '#333333',
 };
 
 // generate light / dark values
@@ -13,63 +13,29 @@ const caclcColors = colors => {
   const calcColors = colors;
   Object.keys(colors).map(key => {
     calcColors[key] = {
-      100: String(
-        Color(colors[key])
-          .lighten(0.5)
-          .hex()
-      ).replace('0x', '#'),
-      200: String(
-        Color(colors[key])
-          .lighten(0.375)
-          .hex()
-      ).replace('0x', '#'),
-      light: String(
-        Color(colors[key])
-          .lighten(0.375)
-          .hex()
-      ).replace('0x', '#'),
-      300: String(
-        Color(colors[key])
-          .lighten(0.25)
-          .hex()
-      ).replace('0x', '#'),
-      400: String(
-        Color(colors[key])
-          .lighten(0.125)
-          .hex()
-      ).replace('0x', '#'),
+      100: String(Color(colors[key]).lighten(0.5).hex()).replace('0x', '#'),
+      200: String(Color(colors[key]).lighten(0.375).hex()).replace('0x', '#'),
+      light: String(Color(colors[key]).lighten(0.375).hex()).replace('0x', '#'),
+      300: String(Color(colors[key]).lighten(0.25).hex()).replace('0x', '#'),
+      400: String(Color(colors[key]).lighten(0.125).hex()).replace('0x', '#'),
       DEFAULT: String(Color(colors[key]).hex()).replace('0x', '#'),
       500: String(Color(colors[key]).hex()).replace('0x', '#'),
       600: String(
-        Color(colors[key])
-          .darken(0.125)
-          .saturate(0.125)
-          .hex()
+        Color(colors[key]).darken(0.125).saturate(0.125).hex()
       ).replace('0x', '#'),
       700: String(
-        Color(colors[key])
-          .darken(0.25)
-          .saturate(0.125)
-          .hex()
+        Color(colors[key]).darken(0.25).saturate(0.125).hex()
       ).replace('0x', '#'),
       dark: String(
-        Color(colors[key])
-          .darken(0.375)
-          .saturate(0.125)
-          .hex()
+        Color(colors[key]).darken(0.375).saturate(0.125).hex()
       ).replace('0x', '#'),
       800: String(
-        Color(colors[key])
-          .darken(0.375)
-          .saturate(0.125)
-          .hex()
+        Color(colors[key]).darken(0.375).saturate(0.125).hex()
       ).replace('0x', '#'),
-      900: String(
-        Color(colors[key])
-          .darken(0.5)
-          .saturate(0.125)
-          .hex()
-      ).replace('0x', '#')
+      900: String(Color(colors[key]).darken(0.5).saturate(0.125).hex()).replace(
+        '0x',
+        '#'
+      ),
     };
   });
   return calcColors;
@@ -87,19 +53,19 @@ module.exports = {
       lg: '1200px',
       xl: '1600px',
       hd: '1920px',
-      '4k': '3840px'
+      '4k': '3840px',
     },
     fontFamily: {
-      sans: ['Gotham SSm A', 'sans-serif']
+      sans: ['Gotham SSm A', 'sans-serif'],
     },
     letterSpacing: {
       '-1': '-0.056rem',
       '-2': '-0.111rem',
       '-3': '-0.167rem',
-      '0': '0px',
-      '1': '0.056rem',
-      '2': '0.111rem',
-      '3': '0.167rem'
+      0: '0px',
+      1: '0.056rem',
+      2: '0.111rem',
+      3: '0.167rem',
     },
     minHeight: {
       'hero-sm': '20rem',
@@ -107,7 +73,7 @@ module.exports = {
       'hero-lg': '40rem',
       '1/3-screen': '33vh',
       '1/2-screen': '50vh',
-      screen: '100vh'
+      screen: '100vh',
     },
     extend: {
       colors: { ...colors, primary: colors.purple['500'] },
@@ -129,13 +95,13 @@ module.exports = {
         '8xl': '8rem',
         '9xl': '9rem',
         '10xl': '10rem',
-        inherit: 'inherit'
+        inherit: 'inherit',
       },
       borderRadius: {
-        DEFAULT: '2px'
+        DEFAULT: '2px',
       },
       height: {
-        divider: '.2rem'
+        divider: '.2rem',
       },
       lineHeight: {
         tighter: '1.111',
@@ -143,27 +109,28 @@ module.exports = {
         medium: '1.45',
         normal: '1.666',
         loose: '2',
-        looser: '2.666'
+        looser: '2.666',
       },
       maxWidth: {
-        'max-w-8xl': '88rem'
+        64: '16rem',
+        '8xl': '88rem',
       },
       width: {
         '1/8': `${(1 / 8) * 100}%`,
         '2/5': '40%',
         '3/5': '60%',
         '3/7': '43%',
-        '4/7': '57%'
+        '4/7': '57%',
       },
       margin: {
-        '96': '24rem',
-        '128': '32rem'
-      }
-    }
+        96: '24rem',
+        128: '32rem',
+      },
+    },
   },
   variants: {
     backgroundColor: ['responsive', 'hover', 'group-hover'],
     opacity: ['responsive', 'hover', 'group-hover'],
-    width: ['responsive', 'hover', 'group-hover']
-  }
+    width: ['responsive', 'hover', 'group-hover'],
+  },
 };

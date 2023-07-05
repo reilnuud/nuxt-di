@@ -81,10 +81,10 @@ export default {
       swiperOptions: {
         fadeEffect: { crossFade: true },
         autoplay: {
-          delay: 2500,
+          delay: 4000,
           disableOnInteraction: false
         },
-        speed: 500,
+        speed: 1000,
         slidersPerView: 1,
         effect: 'fade'
       }

@@ -10,6 +10,9 @@
         class="leading-tight font-light rich-text text-lg sm:text-xl md:text-2xl"
         :richtext="lead"
       />
+      <ul v-if="images && images.length">
+        <!-- <li v-for="image in images">x</li> -->
+      </ul>
     </container>
     <div class="text-black py-6">
       <container>
@@ -28,13 +31,20 @@
               <div style="max-width:300px;">
                 {{ area.heading }}
               </div>
+              <ul class="grid grid-cols-1 pr-3 gap-3 mt-4" v-if="area.images && area.images.length">
+                <li v-for="image in area.images">
+                  <div class="max-w-64">
+                  <imgix v-if="image" :image="image" />
+                  </div>
+                </li>
+              </ul>
             </div>
             <div class="px-3">
               <prismic-rich-text
                 class="leading-normal rich-text"
                 :richtext="area.descriptor"
               />
-              <ul class="py-2 mt-8">
+              <!-- <ul class="py-2 mt-8">
                 <li
                   v-for="example in area.cases"
                   :key="example.uid"
@@ -42,7 +52,7 @@
                 >
                   <app-link :to="example.text">{{ example.text }}</app-link>
                 </li>
-              </ul>
+              </ul> -->
             </div>
           </li>
         </ul>
@@ -62,15 +72,14 @@ export default {
       return {
         ...res,
         document,
+        images:document?.images?.map(({image})=>image),
         lead: document.descriptor,
         heading: document.heading,
         areas: document.body.map(slice => {
           return {
             heading: slice.primary.heading1,
             descriptor: slice.primary.description,
-            cases: slice.items.map(item => {
-              return { text: item.case_title, url: item.case_link.url };
-            })
+            images: slice.items.map(({sidebar_image})=>sidebar_image)
           };
         }),
         title: document.title,
@@ -92,6 +101,7 @@ export default {
   },
   mounted() {
     this.$store.commit('setTheme', { header: 'light', footer: 'light' });
+    console.log(this.areas)
   }
 };
 </script>
